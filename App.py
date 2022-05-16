@@ -10,7 +10,7 @@ def hello_world():
 
 @app.route("/user")
 def user():
-    return "Salim Azouaoui"
+    return "<li> Salim Azouaoui</li>"
 
 
 app.run()
