@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return "Hello World"
+    return 'Bekijk hier de <a href="Admin"> admins!</a> '
 
 
 @app.route("/Admin")
