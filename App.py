@@ -8,9 +8,9 @@ def hello_world():
     return "Hello World"
 
 
-@app.route("/user")
-def user():
-    return "<li> Salim Azouaoui</li> <li> Sahil Azouaoui</li>"
+@app.route("/Admin")
+def Admin():
+    return "<li> Salim Azouaoui</li> <li> Sahil Qari</li> "
 
 
 app.run()
