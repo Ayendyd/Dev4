@@ -1,4 +1,11 @@
-print
-H
+from flask import Flask
 
-Test test test
+app = Flask(__name__)
+
+
+@app.route("/")
+def index():
+
+
+return "Hello, World!"
+app.run()
