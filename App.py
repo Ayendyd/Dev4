@@ -16,7 +16,7 @@ def Admin():
 @app.route('/postexample', methods=['POST'])
 def postExample():
     print(request.json)
-    return jsonify(msg='post example')
+    return jsonify(msg='succes')
 
 
 app.run()
