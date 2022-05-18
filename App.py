@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return 'Bekijk hier de <a href="./frontend/index.html"> admins!</a> '
+    return 'Bekijk hier de <a href="Admin"> admins!</a> '
 
 
 @app.route("/Admin")
