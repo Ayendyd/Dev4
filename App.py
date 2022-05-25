@@ -49,5 +49,14 @@ def categories():
     return jsonify(data)
 
 
+@app.route("/auto")
+def auto():
+    conn = get_db_connection()
+    rows = conn.execute("select * from auto").fetchall()
+    data = convertRows(rows)
+    conn.close()
+    return jsonify(data)
+
+
 if __name__ == '__main__':
     app.run()
