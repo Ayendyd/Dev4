@@ -40,5 +40,14 @@ def order_lines():
     return jsonify(data)
 
 
+@app.route("/categories")
+def categories():
+    conn = get_db_connection()
+    rows = conn.execute("select * from categories").fetchall()
+    data = convertRows(rows)
+    conn.close()
+    return jsonify(data)
+
+
 if __name__ == '__main__':
     app.run()
