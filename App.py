@@ -67,10 +67,10 @@ def userroles():
     return jsonify(data)
 
 
-@app.route("/order")
-def order():
+@app.route("/orders")
+def orders():
     conn = get_db_connection()
-    rows = conn.execute("select * from order").fetchall()
+    rows = conn.execute("select * from orders").fetchall()
     data = convertRows(rows)
     conn.close()
     return jsonify(data)
