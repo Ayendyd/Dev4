@@ -1,8 +1,14 @@
-from webbrowser import get
-from flask import Flask, jsonify, request
+from flask_cors import CORS
+from resources.user import create_user
 import sqlite3 as sql
+from flask import Flask, jsonify, request
+
+from flask_jwt_extended import JWTManager
+
 
 app = Flask(__name__)
+
+CORS(app)
 
 
 def get_db_connection():
@@ -14,10 +20,12 @@ def get_db_connection():
 def convertRows(rows):
     return [dict(row) for row in rows]
 
+# ============================ Routes ============================
+
 
 @app.route("/")
 def hello_world():
-    return 'Bekijk hier de <a href="Admin"> admins!</a> '
+    return 'Bekijk hie de <a href="Admin"> admins!</a> '
 
 
 @app.route("/Admin")
@@ -84,6 +92,9 @@ def users():
     conn.close()
     return jsonify(data)
 
+
+# JWT routes
+app.add_url_rule('/users', None, create_user, methods=['POST'])
 
 if __name__ == '__main__':
     app.run()
