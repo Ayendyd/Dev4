@@ -58,5 +58,32 @@ def auto():
     return jsonify(data)
 
 
+@app.route("/order")
+def order():
+    conn = get_db_connection()
+    rows = conn.execute("select * from order").fetchall()
+    data = convertRows(rows)
+    conn.close()
+    return jsonify(data)
+
+
+@app.route("/userroles")
+def userroles():
+    conn = get_db_connection()
+    rows = conn.execute("select * from userroles").fetchall()
+    data = convertRows(rows)
+    conn.close()
+    return jsonify(data)
+
+
+@app.route("/users")
+def users():
+    conn = get_db_connection()
+    rows = conn.execute("select * from users").fetchall()
+    data = convertRows(rows)
+    conn.close()
+    return jsonify(data)
+
+
 if __name__ == '__main__':
     app.run()
