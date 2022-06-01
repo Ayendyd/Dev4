@@ -15,8 +15,8 @@
 
 </head>
 <body>
-    
-<header class="header">
+<div id="mainPage">
+ <header class="header">
 
     <div id="menu-btn" class="fas fa-bars"></div>
 
@@ -29,35 +29,95 @@
         <a href="#reviews">Medewerkers</a>
         <a href="#contact">contact</a>
     </nav>
-
+    <!-- Login page -->
     <div id="login-btn">
         <button class="btn">login</button>
         <i class="far fa-user"></i>
     </div>
+    <div id="register-btn">
+        <button class="btn">Register</button>
+        <i class="far fa-user"></i>
+    </div>
 
-</header> 
-    
-<div class="login-form-container">
+ </header> 
+
+ <div class="login-form-container">
 
     <span id="close-login-form" class="fas fa-times"></span>
 
     <form action="">
         <h3>gebruiker login</h3>
-        <input type="email" placeholder="email" class="box">
-        <input type="password" placeholder="wachtwoord" class="box">
+        <input type="text" name="email" id="email2" class="box">
+        <input type="password" name="password" id="password2" class="box">
         <p> wachtwoord vergeten <a href="#">klik hier</a> </p>
-        <input type="submit" value="login" class="btn">
+        <button id="login">Login</button>
         <p>of login met</p>
         <div class="buttons">
             <a href="#" class="btn"> google </a>
             <a href="#" class="btn"> facebook </a>
         </div>
-        <p> heb je geen account? <a href="#">Maak account</a> </p>
+        <p> heb je geen account?  </p>
     </form>
 
-</div>
+ </div>
 
-<section class="home" id="home">
+ <div id="registerPage" class="register-form-container">
+
+    <span id="close-register-form" class="fas fa-times"></span>
+
+    <form action="">
+        <h3>gebruiker aanmaken</h3>
+        
+        <input placeholder="firstname" type="text" name="firstname" id="firstname">
+            
+        <input placeholder="Tussenvoegsel" type="text" name="Tussenvoegsel" id="Tussenvoegsel">
+
+        <input placeholder="Lastname" type="text" name="lastname" id="lastname">
+
+            
+            <input placeholder=" email" type="text" name="email" id="email1">
+        
+
+            
+            <input placeholder="password" type="password" name="password" id="password1">
+        
+        
+            
+            <input placeholder="confirm" type="password" name="confirm" id="confirm">
+
+            <input placeholder="Telefoonnummer" type="text" name="Telefoonnummer" id="Telefoonnummer">
+            <input placeholder="Straat" type="text" name="Straat" id="Straat">
+            <input placeholder="Postcode" type="text" name="Postcode" id="Postcode">
+            
+        
+        
+            
+            
+        
+        
+            
+            
+        
+      
+            
+            
+     
+      
+            
+            
+        
+     
+        <div class="input">
+            <button id="register">Register</button>
+        </div>
+        
+       
+    </form>
+
+ </div>
+
+
+ <section class="home" id="home">
 
     <h3 data-speed="-2" class="home-parallax">Huur een auto!</h3>
 
@@ -65,9 +125,9 @@
 
     <a data-speed="7" href="#" class="btn home-parallax">Ontdek auto's</a>
 
-</section>
+ </section>
 
-<section class="icons-container">
+ <section class="icons-container">
 
     <div class="icons">
         <i class="fas fa-home"></i>
@@ -95,11 +155,35 @@
 
     
 
-</section>
+ </section>
+
+ <div class="container hidden" id="mainPage">
+    <div class="swiper-slide box">
+        <img src="image/pic-1.png" alt="">
+        <div class="content">
+            <p>
+                
+                Medewerker
+                </p>
+            <h3>Maarten Stekelenburg</h3>
+            <div class="stars">
+                
+               
+            </div>
+        </div>
+    </div>
+
+
+ </div>
+
+    
+
+   
+</div>
 
 
 
-<section class="services" id="services">
+ <section class="services" id="services">
 
     <h1 class="heading"> Onze <span>services</span> </h1>
 
@@ -130,13 +214,13 @@
 
     </div>
 
-</section>
+ </section>
 
 
 
 
 
-<section class="reviews" id="reviews">
+ <section class="reviews" id="reviews">
 
     <h1 class="heading"> Onze <span>medewerkers</span> </h1>
 
@@ -183,16 +267,17 @@
 
 
 
+    </div>
 
 
 
 
 
 
+ 
 
-<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
-<script src="main.js"></script>
 
 </body>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="main.js"></script>
 </html>

@@ -111,6 +111,16 @@ section{
     color:var(--light-color);
 }
 
+#register-btn .btn{
+    margin-top: 0;
+}
+
+#register-btn i{
+    display: none;
+    font-size: 2.5rem;
+    color:var(--light-color);
+}
+
 .header.active{
     padding:2rem 9%;
     box-shadow: var(--box-shadow);
@@ -191,6 +201,82 @@ section{
 }
 
 .login-form-container #close-login-form{
+    position: absolute;
+    top:1.5rem; right:2.5rem;
+    font-size: 5rem;
+    color:var(--black);
+    cursor: pointer;
+}
+
+.register-form-container{
+    position: fixed;
+    top:-105%; left:0;
+    height:100%;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:rgba(255,255,255,.9);
+    z-index: 10000;
+}
+
+.register-form-container.active{
+    top:0;
+}
+
+.register-form-container form{
+    margin:2rem;
+    text-align: center;
+    padding:2rem;
+    width:40rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    border:var(--border);
+    background: #fff;
+}
+
+.register-form-container form .buttons{
+    display: flex;
+    gap:1rem;
+    align-items: center;
+}
+
+.register-form-container form .btn{
+    display: block;
+    width:100%;
+    margin:.5rem 0;
+}
+
+.register-form-container form .box{
+    margin:.7rem 0;
+    width: 100%;
+    font-size: 1.6rem;
+    color:var(--black);
+    text-transform: none;
+    border:var(--border);
+    padding:1rem 1.2rem;
+    border-radius: .5rem;
+}
+
+.register-form-container form p{
+    padding:1rem 0;
+    font-size: 1.5rem;
+    color:var(--light-color);
+}
+
+.register-form-container form p a{
+    color:var(--yellow);
+    text-decoration: underline;
+}
+
+.register-form-container form h3{
+    padding-bottom:1rem;
+    font-size: 2.5rem;
+    color:var(--black);
+    text-transform: uppercase;
+}
+
+.register-form-container #close-register-form{
     position: absolute;
     top:1.5rem; right:2.5rem;
     font-size: 5rem;
@@ -472,6 +558,52 @@ section{
 
 
 
+.container{
+    position: absolute;
+    display: inline-block;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #F5F5F5;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px #000;
+    min-width: 200px;
+    min-height: 150px;
+}
+
+.input {
+    margin: 10px;
+}
+
+.label {
+    display: block;
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 2px;
+}
+
+input{
+    font-size: 1.4em;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #eee;
+    width: 300px;
+}
+
+button{
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.hidden{
+    display: none;
+}
 
 
 

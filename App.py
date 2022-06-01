@@ -4,11 +4,16 @@ import sqlite3 as sql
 from flask import Flask, jsonify, request
 from resources.auto import create_auto
 from flask_jwt_extended import JWTManager
+from security import login
+from security import me
 
 
 app = Flask(__name__)
 
 CORS(app)
+
+app.config['JWT_SECRET_KEY'] = 'token'
+jwt = JWTManager(app)
 
 
 def get_db_connection():
@@ -92,11 +97,16 @@ def users():
     conn.close()
     return jsonify(data)
 
-app.add_url_rule('/auto', None, create_auto, methods=['POST'])    
+
+app.add_url_rule("/me", None, me, methods=['GET'])
+
+app.add_url_rule('/auto', None, create_auto, methods=['POST'])
 
 
 # JWT routes
 app.add_url_rule('/users', None, create_user, methods=['POST'])
+app.add_url_rule('/auth', None, login, methods=['POST'])
+
 
 if __name__ == '__main__':
     app.run()

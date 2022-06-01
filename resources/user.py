@@ -16,16 +16,16 @@ def create_user():
  INSERT INTO
 
        `users`
-           (`Voornaam`, `Tussenvoegsel`, `Achternaam`, `Email`, `Wachtwoord`, `Telefoonnummer`, `Straat`, `Postcode`, `Huisnummer`, `BSN`, `Creditcard`, `Rijbewijs`)
+           (`firstname`, `Tussenvoegsel`, `lastname`, `email`, `password`, `Telefoonnummer`, `Straat`, `Postcode`)
 
       VALUES
       
-           (:Voornaam, :Tussenvoegsel, :Achternaam, :Email, :Wachtwoord, :Telefoonnummer, :Straat, :Postcode, :Huisnummer, :BSN, :Creditcard, :Rijbewijs)
+           (:firstname, :Tussenvoegsel, :lastname, :email, :password, :Telefoonnummer, :Straat, :Postcode)
 
    '''''''''''''''
     # Hash the password before inserting
 
-    args['Wachtwoord'] = generate_password_hash(args['Wachtwoord'])
+    args['password'] = generate_password_hash(args['password'])
 
     # Insert the user into the database
 
