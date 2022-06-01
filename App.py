@@ -2,7 +2,7 @@ from flask_cors import CORS
 from resources.user import create_user
 import sqlite3 as sql
 from flask import Flask, jsonify, request
-
+from resources.auto import create_auto
 from flask_jwt_extended import JWTManager
 
 
@@ -91,6 +91,8 @@ def users():
     data = convertRows(rows)
     conn.close()
     return jsonify(data)
+
+app.add_url_rule('/auto', None, create_auto, methods=['POST'])    
 
 
 # JWT routes
