@@ -89,14 +89,6 @@ function getValue(id) {
   return "";
 }
 
-function getValue(id) {
-  let element = document.getElementById(id);
-  if (element) {
-    return element.value;
-  }
-  return "";
-}
-
 function api(endpoint, method = "GET", data = {}) {
   const API = "http://localhost:5000/";
   return fetch(API + endpoint, {
