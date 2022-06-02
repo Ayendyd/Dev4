@@ -10,7 +10,6 @@ from flask_jwt_extended import (
 
 
 def login():
-    pass
     # Get data from request
 
     email = request.json.get('email', None)

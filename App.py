@@ -10,6 +10,8 @@ from security import me
 
 app = Flask(__name__)
 
+app.debug = True
+
 CORS(app)
 
 app.config['JWT_SECRET_KEY'] = 'token'

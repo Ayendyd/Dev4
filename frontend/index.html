@@ -15,7 +15,9 @@
 
 </head>
 <body>
-<div id="mainPage">
+
+
+
  <header class="header">
 
     <div id="menu-btn" class="fas fa-bars"></div>
@@ -31,17 +33,22 @@
     </nav>
     <!-- Login page -->
     <div id="login-btn">
-        <button class="btn">login</button>
+        <button onclick="showPage('loginPage')" class="btn">login</button>
         <i class="far fa-user"></i>
     </div>
     <div id="register-btn">
-        <button class="btn">Register</button>
+        <button onclick="showPage('registerPage')" class="btn">Register</button>
         <i class="far fa-user"></i>
     </div>
 
  </header> 
 
- <div class="login-form-container">
+ 
+
+
+
+ <div class="container hidden" id="loginPage">
+ 
 
     <span id="close-login-form" class="fas fa-times"></span>
 
@@ -59,11 +66,14 @@
         <p> heb je geen account?  </p>
     </form>
 
+ 
  </div>
+  
+ <div class="container hidden" id="registerPage">
 
- <div id="registerPage" class="register-form-container">
-
+    
     <span id="close-register-form" class="fas fa-times"></span>
+
 
     <form action="">
         <h3>gebruiker aanmaken</h3>
@@ -90,184 +100,157 @@
             <input placeholder="Postcode" type="text" name="Postcode" id="Postcode">
             
         
-        
-            
-            
-        
-        
-            
-            
-        
-      
-            
-            
-     
-      
-            
-            
-        
-     
         <div class="input">
             <button id="register">Register</button>
         </div>
         
        
     </form>
-
  </div>
 
 
- <section class="home" id="home">
-
-    <h3 data-speed="-2" class="home-parallax">Huur een auto!</h3>
-
-    <img data-speed="5" class="home-parallax" src="image/home-img.png" alt="">
-
-    <a data-speed="7" href="#" class="btn home-parallax">Ontdek auto's</a>
-
- </section>
-
- <section class="icons-container">
-
-    <div class="icons">
-        <i class="fas fa-home"></i>
-        <div class="content">
-            <h3>150+</h3>
-            <p>merken</p>
-        </div>
-    </div>
-
-    <div class="icons">
-        <i class="fas fa-car"></i>
-        <div class="content">
-            <h3>4770+</h3>
-            <p > Auto's verhuurd</p>
-        </div>
-    </div>
-
-    <div class="icons">
-        <i class="fas fa-users"></i>
-        <div class="content">
-            <h3>320+</h3>
-            <p>blije klanten</p>
-        </div>
-    </div>
+ <div class=" hidden" id="Logged">
 
     
-
- </section>
-
- <div class="container hidden" id="mainPage">
-    <div class="swiper-slide box">
-        <img src="image/pic-1.png" alt="">
-        <div class="content">
-            <p>
-                
-                Medewerker
-                </p>
-            <h3>Maarten Stekelenburg</h3>
-            <div class="stars">
-                
-               
-            </div>
-        </div>
+    <section class="home" id="home">
+   
+       <h3 data-speed="-2" class="home-parallax">Huur een auto!</h3>
+   
+       <img data-speed="5" class="home-parallax" src="image/home-img.png" alt="">
+   
+       <a data-speed="7" href="#" class="btn home-parallax">Ontdek auto's</a>
+   
+    </section>
+   
+   
+   
+    <section class="icons-container">
+   
+       <div class="icons">
+           <i class="fas fa-home"></i>
+           <div class="content">
+               <h3>150+</h3>
+               <p>merken</p>
+           </div>
+       </div>
+   
+       <div class="icons">
+           <i class="fas fa-car"></i>
+           <div class="content">
+               <h3>4770+</h3>
+               <p > Auto's verhuurd</p>
+           </div>
+       </div>
+   
+       <div class="icons">
+           <i class="fas fa-users"></i>
+           <div class="content">
+               <h3>320+</h3>
+               <p>blije klanten</p>
+           </div>
+       </div>
+   
+   </section>
+   
+    
+   
+   
+   
+    <section class="services" id="services">
+   
+       <h1 class="heading"> Onze <span>services</span> </h1>
+   
+       <div class="box-container">
+   
+           <div class="box">
+               <i class="fas fa-car"></i>
+               <h3>Auto huren</h3>
+               <p>Bij ons huur je een auto vanaf 60 euro per dag waarbij je gratis een extra bestuurder hebt.  </p>
+               <a href="#" class="btn"> Lees meer</a>
+           </div>
+   
+          
+   
+           <div class="box">
+               <i class="fas fa-car-crash"></i>
+               <h3>Auto verzekering</h3>
+               <p> Gratis buitenland verzekerd.</p>
+               <a href="#" class="btn"> Lees meer</a>
+           </div>
+   
+           <div class="box">
+               <i class="fas fa-headset"></i>
+               <h3>24/7 support</h3>
+               <p>We zijn voor onze klanten 24/7 bereikbaar daarnaast heb je gratis pechhulp van de ANWB.</p>
+               <a href="#" class="btn"> Lees meer</a>
+           </div>
+   
+       </div>
+   
+    </section>
+   
+   
+   
+   
+   
+    <section class="reviews" id="reviews">
+   
+       <h1 class="heading"> Onze <span>medewerkers</span> </h1>
+   
+       <div class="swiper review-slider">
+   
+           <div class="swiper-wrapper">
+   
+               <div class="swiper-slide box">
+                   <img src="image/pic-1.png" alt="">
+                   <div class="content">
+                       <p>
+                           
+                           Medewerker
+                           </p>
+                       <h3>Maarten Stekelenburg</h3>
+                       <div class="stars">
+                           
+                          
+                       </div>
+                   </div>
+               </div>
+   
+               <div class="swiper-slide box">
+                   <img src="image/pic-2.png" alt="">
+                   <div class="content">
+                       <p> Medewerker</p>
+                       <h3>Sandra Verhoeven</h3>
+                      
+                   </div>
+               </div>
+   
+               <div class="swiper-slide box">
+                   <img src="image/pic-3.png" alt="">
+                   <div class="content">
+                       <p>Medewerker</p>
+                       <h3>Mounir Hajji</h3>
+                      
+                           
+                       </div>
+                   </div>
+               </div>
+   
+           </section>
+   
+   
+   
+       
+   
+   
+   
+   
     </div>
 
 
- </div>
 
-    
 
    
-</div>
-
-
-
- <section class="services" id="services">
-
-    <h1 class="heading"> Onze <span>services</span> </h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <i class="fas fa-car"></i>
-            <h3>Auto huren</h3>
-            <p>Bij ons huur je een auto vanaf 60 euro per dag waarbij je gratis een extra bestuurder hebt.  </p>
-            <a href="#" class="btn"> Lees meer</a>
-        </div>
-
-       
-
-        <div class="box">
-            <i class="fas fa-car-crash"></i>
-            <h3>Auto verzekering</h3>
-            <p> Gratis buitenland verzekerd.</p>
-            <a href="#" class="btn"> Lees meer</a>
-        </div>
-
-        <div class="box">
-            <i class="fas fa-headset"></i>
-            <h3>24/7 support</h3>
-            <p>We zijn voor onze klanten 24/7 bereikbaar daarnaast heb je gratis pechhulp van de ANWB.</p>
-            <a href="#" class="btn"> Lees meer</a>
-        </div>
-
-    </div>
-
- </section>
-
-
-
-
-
- <section class="reviews" id="reviews">
-
-    <h1 class="heading"> Onze <span>medewerkers</span> </h1>
-
-    <div class="swiper review-slider">
-
-        <div class="swiper-wrapper">
-
-            <div class="swiper-slide box">
-                <img src="image/pic-1.png" alt="">
-                <div class="content">
-                    <p>
-                        
-                        Medewerker
-                        </p>
-                    <h3>Maarten Stekelenburg</h3>
-                    <div class="stars">
-                        
-                       
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <img src="image/pic-2.png" alt="">
-                <div class="content">
-                    <p> Medewerker</p>
-                    <h3>Sandra Verhoeven</h3>
-                   
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <img src="image/pic-3.png" alt="">
-                <div class="content">
-                    <p>Medewerker</p>
-                    <h3>Mounir Hajji</h3>
-                   
-                        
-                    </div>
-                </div>
-            </div>
-
-           
-
-
-
-    </div>
 
 
 

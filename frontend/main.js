@@ -33,7 +33,7 @@ function login() {
   api("auth", "POST", data).then((res) => {
     if (res.message == "success") {
       setCookie("token", res.access_token, 365);
-      showPage("mainPage");
+      showPage("Logged");
       getUser();
     }
   });
@@ -89,9 +89,6 @@ function getValue(id) {
   return "";
 }
 
-let menu = document.querySelector("#menu-btn");
-let navbar = document.querySelector(".navbar");
-
 function getValue(id) {
   let element = document.getElementById(id);
   if (element) {
@@ -112,64 +109,6 @@ function api(endpoint, method = "GET", data = {}) {
     body: method == "GET" ? null : JSON.stringify(data),
   }).then((res) => res.json());
 }
-
-menu.onclick = () => {
-  menu.classList.toggle("fa-times");
-  navbar.classList.toggle("active");
-};
-
-document.querySelector("#login-btn").onclick = () => {
-  document.querySelector(".login-form-container").classList.toggle("active");
-};
-
-document.querySelector("#close-login-form").onclick = () => {
-  document.querySelector(".login-form-container").classList.remove("active");
-};
-
-document.querySelector("#register-btn").onclick = () => {
-  document.querySelector(".register-form-container").classList.toggle("active");
-};
-
-document.querySelector("#close-register-form").onclick = () => {
-  document.querySelector(".register-form-container").classList.remove("active");
-};
-
-window.onscroll = () => {
-  menu.classList.remove("fa-times");
-  navbar.classList.remove("active");
-
-  if (window.scrollY > 0) {
-    document.querySelector(".header").classList.add("active");
-  } else {
-    document.querySelector(".header").classList.remove("active");
-  }
-};
-
-var swiper = new Swiper(".review-slider", {
-  grabCursor: true,
-  centeredSlides: true,
-  spaceBetween: 20,
-  loop: true,
-  autoplay: {
-    delay: 9500,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 1,
-    },
-    768: {
-      slidesPerView: 2,
-    },
-    1024: {
-      slidesPerView: 3,
-    },
-  },
-});
 
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
