@@ -1,4 +1,3 @@
-from email import message
 from database.autodb import DB
 from flask import request, jsonify
 from flask_bcrypt import check_password_hash
@@ -21,17 +20,17 @@ def login():
 
     # Check if user exists and password is correct
     if not user or not check_password_hash(user['password'], password):
-        return {'message': 'Onjuiste gegevens'}
+        return {'message': 'Onjuiste gegevens'}, 401
 
     # Delete password from user (should not be sent back!)
     del user['password']
-
+    
     # Create JWT
     access_token = create_access_token(user)
-    return jsonify(access_token=access_token, message='success'), 200
+    return jsonify(access_token = access_token, message ='success'), 200
 
 
 @jwt_required()
 def me():
     user = get_jwt_identity()
-    return jsonify(user=user, message='success'), 200
+    return jsonify(user = user, message = 'success'), 200

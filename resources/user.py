@@ -12,8 +12,8 @@ def create_user():
     args = request.get_json()
 
     # Make the insert query with parameters
-    qry = '''''''''''''''
- INSERT INTO
+    qry =  '''''''''
+     INSERT INTO
 
        `users`
            (`firstname`, `Tussenvoegsel`, `lastname`, `email`, `password`, `Telefoonnummer`, `Straat`, `Postcode`)
@@ -21,8 +21,8 @@ def create_user():
       VALUES
       
            (:firstname, :Tussenvoegsel, :lastname, :email, :password, :Telefoonnummer, :Straat, :Postcode)
-
-   '''''''''''''''
+ 
+    '''''''''
     # Hash the password before inserting
 
     args['password'] = generate_password_hash(args['password'])

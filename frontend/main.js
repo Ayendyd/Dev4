@@ -41,6 +41,9 @@ function login() {
 
 function getUser() {
   // Fetch user data from API
+  fetch("http://localhost:5000/me")
+    .then((response) => response.json())
+    .then((data) => console.log(data));
 }
 
 function logout() {}
@@ -88,7 +91,13 @@ function getValue(id) {
   }
   return "";
 }
-
+function getValue(id) {
+  let element = document.getElementById(id);
+  if (element) {
+    return element.value;
+  }
+  return "";
+}
 function api(endpoint, method = "GET", data = {}) {
   const API = "http://localhost:5000/";
   return fetch(API + endpoint, {
