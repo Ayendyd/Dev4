@@ -556,8 +556,9 @@ section{
 }
 
 
+
+
 .container{
-    
     position: absolute;
     display: inline-block;
     left: 50%;
@@ -603,6 +604,13 @@ button{
 .hidden{
     display: none;
 }
+
+
+
+
+
+
+
 
 
 
@@ -677,4 +685,3 @@ button{
     }
 
 }
-

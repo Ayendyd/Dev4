@@ -33,7 +33,7 @@ function login() {
   api("auth", "POST", data).then((res) => {
     if (res.message == "success") {
       setCookie("token", res.access_token, 365);
-      showPage("mainPage");
+      showPage("Logged");
       getUser();
     }
   });
@@ -41,11 +41,12 @@ function login() {
 
 function getUser() {
   // Fetch user data from API
+  fetch("http://localhost:5000/me")
+    .then((response) => response.json())
+    .then((data) => console.log(data));
 }
 
 function logout() {}
-
-// Helper functions
 
 function showPage(id) {
   let pages = document.getElementsByClassName("container");
@@ -90,7 +91,6 @@ function getValue(id) {
   }
   return "";
 }
-
 function api(endpoint, method = "GET", data = {}) {
   const API = "http://localhost:5000/";
   return fetch(API + endpoint, {
@@ -104,7 +104,6 @@ function api(endpoint, method = "GET", data = {}) {
   }).then((res) => res.json());
 }
 
-// Cookie functions stolen from w3schools (https://www.w3schools.com/js/js_cookies.asp)
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);

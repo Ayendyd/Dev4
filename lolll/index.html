@@ -4,19 +4,79 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <link rel="icon" href="https://windesheim.nl/assets/favicons/favicon.ico">
-    
     
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <title>JWT</title>
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="main.css">
+
 </head>
-<body class="wh">
-    <!-- Register page -->
-    <div class="container hidden" id="registerPage">
+<body>
+
+
+
+ <header class="header">
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+    <a href="#" class="logo"> <span>Huur</span>wielen </a>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#vehicles">Auto's</a>
+        <a href="#services">services</a>
+        <a href="#reviews">Medewerkers</a>
+        <a href="#contact">contact</a>
+    </nav>
+    <!-- Login page -->
+    <div id="login-btn" >
+        <button onclick="showPage('loginPage')" class="btn">login</button>
+        <i class="far fa-user"></i>
+    </div>
+    <div id="register-btn">
+        <button onclick="showPage('registerPage')" class="btn">Register</button>
+        <i class="far fa-user"></i>
+    </div>
+
+ </header> 
+
+ 
+
+
+
+ <div class="container hidden" id="loginPage">
+ 
+
+    <span id="close-login-form" class="fas fa-times"></span>
+
+    <form action="">
+        <h3>gebruiker login</h3>
+        <input type="text" name="email" id="email2" class="box">
+        <input type="password" name="password" id="password2" class="box">
+        <p> wachtwoord vergeten <a href="#">klik hier</a> </p>
+        <button id="login">Login</button>
+        <p>of login met</p>
+        <div class="buttons">
+            <a href="#" class="btn"> google </a>
+            <a href="#" class="btn"> facebook </a>
+        </div>
+        <p> heb je geen account?  </p>
+    </form>
+
+ 
+ </div>
+  
+ <div class="container hidden" id="registerPage">
+
+    
+    <span id="close-register-form" class="fas fa-times"></span>
+
+
+    <form action="">
+        <h3>gebruiker aanmaken</h3>
         
         <input placeholder="firstname" type="text" name="firstname" id="firstname">
             
@@ -38,51 +98,18 @@
             <input placeholder="Telefoonnummer" type="text" name="Telefoonnummer" id="Telefoonnummer">
             <input placeholder="Straat" type="text" name="Straat" id="Straat">
             <input placeholder="Postcode" type="text" name="Postcode" id="Postcode">
-       
+            
+        
         <div class="input">
             <button id="register">Register</button>
         </div>
-        <p>Already have an account? <a onclick="showPage('loginPage')">Login</a></p>
-    </div>
-    <!-- Login page -->
-    <div class="container" id="loginPage">
-        <div class="input">
-            <span class="label">E-mail:</span>
-            <input type="text" name="email" id="email2">
-        </div>
-        <div class="input">
-            <span class="label">Password:</span>
-            <input type="password" name="password" id="password2">
-        </div>
-        <div class="input">
-            <button id="login">Login</button>
-        </div>
-        <p>Don't have an account yet? <span onclick="showPage('registerPage')">Register</span></p>
-    </div>
+        
+       
+    </form>
+ </div>
 
 
-</body>
-<script src="main.js"></script>
-<body>
-    <!-- User info page -->
-    <div class=" hidden" id="mainPage">
-
-     
-
-
-
-
- 
- 
-
-
-
-
-  
- 
-
-
- 
+ <div class=" hidden" id="Logged">
 
     
  <header class="header">
@@ -109,7 +136,7 @@
     </div>
 
     <div id="register-btn" >
-        <button class="btn"><a href="/frontend/"> Uitloggen</a></button>
+        <button onclick="showPage('registerPage')" class="btn">Uitloggen</button>
         <i class="far fa-user"></i>
     </div>
     
@@ -120,7 +147,7 @@
 
 
 
-
+</div>
 
     
     <section class="home" id="home">
@@ -252,7 +279,7 @@
    
    
        
-    </div>
+   
    
    
    
@@ -270,8 +297,7 @@
 
  
 
-    
-
+           
 </body>
 <script src="main.js"></script>
 </html>
