@@ -420,6 +420,68 @@ section{
 .swiper-pagination-bullet-active{
     background: var(--yellow);
 }
+.services1 .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+    
+}
+
+.services1 .box-container .box{
+    padding: 6rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    border:var(--border);
+    text-align: center;
+}
+
+.services1 .box-container .box i{
+    height:6rem;
+    width:6rem;
+    line-height: 6rem;
+    border-radius: 50%;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background:var(--yellow);
+    color:var(--black);
+}
+
+.services1 .box-container .box li{
+    
+   
+    line-height: 0rem;
+    padding:1rem 0;
+    font-size: 1.4rem;
+   
+    
+}
+
+.services1 .box-container .box h3{
+    
+    font-size: 2.2rem;
+    color:var(--black);
+}
+
+.services1 .box-container .box p{
+    display: grid;
+    line-height: 1.4;
+    padding:1rem 0;
+    font-size: 1.4rem;
+    color:var(--light-color);
+}
+
+.services1 .box-container .box:hover{
+    background: var(--black);
+}
+
+.services1 .box-container .box:hover h3{
+    color:#fff;
+}
+
+.services1 .box-container .box:hover p{
+    color:#eee;
+}
+
 
 .services .box-container{
     display: grid;
@@ -571,6 +633,26 @@ section{
     box-shadow: 2px 2px 4px #000;
     min-width: 200px;
     min-height: 150px;
+    
+}
+
+
+
+.containerr{
+    
+    position: absolute;
+    display: inline-block;
+    left: 50%;
+    top: 65%;
+    transform: translate(-50%, -50%);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #F5F5F5;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px #000;
+    min-width: 200px;
+    min-height: 150px;
 }
 
 .input {
@@ -628,6 +710,19 @@ button{
 
 }
 
+.containerrr {
+    margin: auto;
+    
+    
+    width:40rem;
+    border-radius: .5rem;
+  
+    position: absolute; 
+    background: #fff;
+
+   }
+
+
 @media (max-width:768px){
 
     #menu-btn{
@@ -645,7 +740,7 @@ button{
     #login-btn i{
         display: block;
     }
-
+  
     .header .navbar{
         position: absolute;
         top:99%; left:0; right:0;
@@ -677,4 +772,8 @@ button{
     }
 
 }
+
+
+
+
 

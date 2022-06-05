@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +15,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>JWT</title>
 </head>
-<body class="wh">
+    <body class="wh">
     <!-- Register page -->
-    <div class="container hidden" id="registerPage">
+<div class="container hidden" id="registerPage">
         
         <input placeholder="firstname" type="text" name="firstname" id="firstname">
             
@@ -43,9 +44,44 @@
             <button id="register">Register</button>
         </div>
         <p>Already have an account? <a onclick="showPage('loginPage')">Login</a></p>
+</div>
+
+<div class="container hidden" id="ReserveerPage">
+    
+    <div class="input">
+        <span class="label">Begin Datum:</span>
+        <input type="datetime-local" name="begin_datum" id="BeginDatum" required>
     </div>
+    <div class="input">
+        <span class="label">Eind Datum:</span>
+        <input type="datetime-local" name="eind_datum" id="EindDatum" required>
+    </div>
+   
+    <div class="input">
+        <span class="label">Vrije Kilometers:</span>
+        <input type="number" name="vrije_kilometers" id="vrije_kilometers">
+    </div>
+    
+    <div class="input">
+    <select id="AAA" class="form-select" aria-label="Default select example">
+        <option id="Autonaampje" selected>Open this select menu</option>
+        <option  id="Autonaam0" ></option>
+        <option  id="Autonaam1"></option>
+        <option  id="Autonaam2"></option>
+      </select>
+    
+
+    </div>
+        <div class="input">
+
+        <button id="reserveren">Register</button>
+    </div>
+</form>
+    <p>Already have an account? <a onclick="showPage('loginPage')">Login</a></p>
+</div>
+    
     <!-- Login page -->
-    <div class="container" id="loginPage">
+<div class="container" id="loginPage">
         <div class="input">
             <span class="label">E-mail:</span>
             <input type="text" name="email" id="email2">
@@ -58,69 +94,73 @@
             <button id="login">Login</button>
         </div>
         <p>Don't have an account yet? <span onclick="showPage('registerPage')">Register</span></p>
-    </div>
-
-
-</body>
-<script src="main.js"></script>
-<body>
-    <!-- User info page -->
-    <div class=" hidden" id="mainPage">
-
-     
+</div>
 
 
 
 
- 
- 
+
+<div class="containerr hidden" id="AddProductPage">
+        
+        <input placeholder="Naam" type="text" name="Naam" id="Naam">
+            
+        <input placeholder="Model" type="text" name="Model" id="Model">
+
+        <input placeholder="Kleur" type="text" name="Kleur" id="Kleur">
+
+            
+            <input placeholder=" Brandstof" type="text" name="Brandstof" id="Brandstof">
+        
+
+            
+            <input placeholder="Transmissie" type="text" name="Transmissie" id="Transmissie">
+        
+        
+            
+            <input placeholder="GPS" type="text" name="GPS" id="GPS">
+
+            <input placeholder="Bouwjaar" type="text" name="Bouwjaar" id="Bouwjaar">
+            <input placeholder="Vermogen" type="text" name="Vermogen" id="Vermogen">
+            <input placeholder="Categorie_id" type="text" name="Categorie_id" id="Categorie_id">
+            
+       
+        <div class="input">
+            <button id="toevoegen">Toevoegen</button>
+        </div>
+        <p>Terug gaan? <a onclick="showPage('mainPage')">Annuleren</a></p>
+</div>
 
 
+        </body>
+        <script src="main.js"></script>
+        <body>
+        <!-- User info page -->
 
+<div class=" hidden" id="mainPage">
 
-  
- 
+        <header class="header">
 
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <a href="#" class="logo"> <span>Huur</span>wielen </a>
 
- 
-
-    
- <header class="header">
-
-    <div id="menu-btn" class="fas fa-bars"></div>
-
-    <a href="#" class="logo"> <span>Huur</span>wielen </a>
-
-    <nav class="navbar">
-        <a href="#home">home</a>
-        <a href="#vehicles">Auto's</a>
+     <nav class="navbar">
+        <a  onclick="showPage('AutoPagina'), HidePage('mainPage')" >Auto's</a>
         <a href="#services">services</a>
         <a href="#reviews">Medewerkers</a>
-        <a href="#contact">contact</a>
+        <a onclick="showPage('ReservatiesPagina'), HidePage('mainPage')" >Reservaties</a>
     </nav>
-    <!-- Login page -->
-    <div id="login-btn" class="hidden" >
-        <button onclick="showPage('loginPage')" class="btn">login</button>
-        <i class="far fa-user"></i>
-    </div>
-    <div id="register-btn" class="hidden">
-        <button onclick="showPage('registerPage')" class="btn">Register</button>
-        <i class="far fa-user"></i>
-    </div>
 
-    <div id="register-btn" >
-        <button class="btn"><a href="/frontend/index.html"> Uitloggen</a></button>
-        <i class="far fa-user"></i>
-    </div>
+
+
+              <div id="register-btn" >
+                <button id="logout" class="btn"> Uitloggen</button>
+                <i class="far fa-user"></i>
+              </div>
     
+    
+         </header> 
 
- </header> 
-
-
-
-
-
-
+    <p>Terug gaan? <a onclick="showPage('mainPage')">Annuleren</a></p>
 
     
     <section class="home" id="home">
@@ -164,10 +204,7 @@
    </section>
    
     
-   
-   
-   
-    <section class="services" id="services">
+     <section class="services" id="services">
    
        <h1 class="heading"> Onze <span>services</span> </h1>
    
@@ -199,20 +236,52 @@
        </div>
    
     </section>
+
+
+    <section class="services" id="reviews">
    
+        <h1 class="heading"> Voor <span>medewerkers</span> </h1>
+    
+        <div class="box-container">
+
+            
+    
+            <div class="box">
+                <i class="fas fa-car"></i>
+                <h3>TestFase</h3>
+                <p>Bij ons huur je een auto vanaf 60 euro per dag waarbij je gratis een extra bestuurder hebt.  </p>
+                <div id="register-btn" class="btn">
+                    
+                    <i class="far fa-user"></i>
+                </div>
+            </div>
+    
+           
+    
+            <div class="box">
+                <i class="fas fa-users"></i>
+                <h3>Uw gegevens:</h3>
+                <p> Voornaam: <span id="naampje"></span></p>
+                <p> Achternaam: <span id="achternaampje"></span></br ></p>
+                <a href="#" class="btn"> Lees meer</a>
+            </div>
+    
+            <div class="box">
+                <i class="fas fa-headset"></i>
+                <h3>24/7 support</h3>
+                <p>We zijn voor onze klanten 24/7 bereikbaar daarnaast heb je gratis pechhulp van de ANWB.</p>
+                <a href="#" class="btn"> Lees meer</a>
+            </div>
+    
+        </div>
+    </section>
    
-   
-   
-   
-    <section class="reviews" id="reviews">
+    <section class="services" id="services">
    
        <h1 class="heading"> Onze <span>medewerkers</span> </h1>
    
-       <div class="swiper review-slider">
-   
-           <div class="swiper-wrapper">
-   
-               <div class="swiper-slide box">
+       <div class="box-container">
+                <div class="swiper-slide box">
                    <img src="image/pic-1.png" alt="">
                    <div class="content">
                        <p>
@@ -220,10 +289,7 @@
                            Medewerker
                            </p>
                        <h3>Maarten Stekelenburg</h3>
-                       <div class="stars">
-                           
-                          
-                       </div>
+                       
                    </div>
                </div>
    
@@ -240,24 +306,184 @@
                    <img src="image/pic-3.png" alt="">
                    <div class="content">
                        <p>Medewerker</p>
-                       <h3>Mounir Hajji</h3>
-                      
-                           
-                       </div>
-                   </div>
-               </div>
-   
-           </section>
-   
-   
-   
-       
-    </div>
-   
-   
-   
+                       <h3>Mounir Hajji</h3>    
+                    </div>
+                </div>
+           </section>    
+</div>
    
 
+
+    
+   
+   
+   
+   
+   
+<div id="AutoPagina" class="hidden">
+             <header class="header">
+            <div id="menu-btn" class="fas fa-bars"></div>
+                <a href="#" class="logo"> <span>Huur</span>wielen </a>
+            
+            <nav class="navbar">
+                <a onclick="showPage('mainPage'), HidePage('AutoPagina')" >home</a>
+                <a onclick="showPage('AutoPagina'), HidePage('mainPage')" >>Auto's</a>
+                <a href="#services">services</a>
+                <a href="#reviews">Medewerkers</a>
+                <a onclick="showPage('ReservatiesPagina'), HidePage('mainPage')" >Reservaties</a>
+            </nav>
+        
+        
+            <!-- Login page -->
+           
+        
+            <div id="register-btn" >
+                <button id="logout" class="btn"> Uitloggen</button>
+                <i class="far fa-user"></i>
+            </div>          
+         </header> 
+         
+         <section class="services1" id="services">
+               <h1 class="heading"> Onze <span>Auto's</span> </h1>
+
+            <div class="box-container">
+              <div class="box">
+                    <i class="fas fa-car"></i>
+                    <h3 id="Autonaam0"></h3>
+                    <li id="Automodel0"></li>
+                    <li id="Autokleur0"></li>
+                  <li id="Autobrandstof0"></li> 
+                  <p> Reserveer deze auto</p>
+                  <a onclick="showPage('ReserveerPage')" class="btn"> Reserveer!</a>
+                </div>
+
+                <div class="box">
+                    <i class="fas fa-car-crash"></i>
+                    <h3 id="Autonaam1"></h3>
+                    <li id="Automodel1"></li>
+                    <li id="Autokleur1"></li>
+                  <li id="Autobrandstof1"></li> 
+                    <p> Reserveer deze auto</p>
+                    <a onclick="showPage('ReserveerPage')" class="btn"> Reserveer!</a>
+                </div>
+        
+                <div class="box">
+                    <img src="" alt="">
+                    <i class="fas fa-car-crash"></i>
+                    <h3 id="Autonaam2"></h3>
+                    
+                  <li id="Automodel2"></li>
+                    <li id="Autokleur2"></li>
+                  <li id="Autobrandstof2"></li> 
+                  <p> Reserveer deze auto</p>
+                  <a onclick="showPage('ReserveerPage')" class="btn"> Reserveer!</a>                
+                </div>  
+           
+            </div>    
+        </section>   
+</div>
+
+
+
+
+<div class="hidden" id="MwPagina">
+
+
+
+
+
+    <section class="services" id="reviews">
+        <h1 class="heading"> Mijn <span>Reservaties</span> </h1>
+        <div class="box-container">   
+
+            <div class="box">
+                <i class="fas fa-car"></i>
+                <h3>Product Toevoegen</h3>
+                <p>Bij ons huur je een auto vanaf 60 euro per dag waarbij je gratis een extra bestuurder hebt.  </p>
+                <div id="register-btn" class="btn">
+                    <button onclick="showPage('AddProductPage')" class="btn">Voeg toe</button>
+                    <i class="far fa-user"></i>
+                </div>
+            </div>
+    
+            <div class="box">
+                <i class="fas fa-users"></i>
+                <h3>Uw gegevens:</h3>
+                <p> Voornaam: <span id="naampje"></span></p>
+                <p> Achternaam: <span id="achternaampje"></span></br ></p>
+                <a href="#" class="btn"> Lees meer</a>
+            </div>
+    
+            <div class="box">
+                <i class="fas fa-car"></i>
+                <h3>Onze auto's</h3>
+                <p>We zijn voor onze klanten 24/7 bereikbaar daarnaast heb je gratis pechhulp van de ANWB.</p>
+                <a onclick="showPage('AutoPagina')" class="btn"> Bekijk!</a>
+            </div>
+    
+        </div>
+    </section>
+   
+
+
+
+
+
+
+
+
+
+
+</div>
+ 
+    
+   
+<div class="hidden" id="ReservatiesPagina">
+    <header class="header">
+        <div id="menu-btn" class="fas fa-bars"></div>
+            <a href="#" class="logo"> <span>Huur</span>wielen </a>
+        
+        <nav class="navbar">
+            <a onclick="showPage('mainPage'), HidePage('AutoPagina')" >home</a>
+            <a onclick="showPage('AutoPagina'), HidePage('mainPage')" >>Auto's</a>
+            <a href="#services">services</a>
+            <a href="#reviews">Medewerkers</a>
+            <a onclick="showPage('ReservatiesPagina'), HidePage('mainPage')" >Reservaties</a>
+        </nav>
+    
+    
+        <!-- Login page -->
+       
+    
+        <div id="register-btn" >
+            <button id="logout" class="btn"> Uitloggen</button>
+            <i class="far fa-user"></i>
+        </div>          
+     </header> 
+    
+    
+    <div class="home">
+    <section class="services" id="reviews">
+        <h1 class="heading"> Voor <span>medewerkers</span> </h1>
+        <div class="box-container">   
+
+            <div class="box">
+                <i class="fas fa-car"></i>
+                <h3>Product Toevoegen</h3>
+                <p>Bij ons huur je een auto vanaf 60 euro per dag waarbij je gratis een extra bestuurder hebt.  </p>
+                <div id="register-btn" class="btn">
+                    <button class="btn">Voeg toe</button>
+                    <i class="far fa-user"></i>
+                </div>
+            </div>
+    
+         
+    
+        </div>
+    </section>
+
+        </div>
+</div>
 
 
 

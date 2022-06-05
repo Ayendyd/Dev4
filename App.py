@@ -1,3 +1,4 @@
+import imp
 from flask_cors import CORS
 from resources.user import create_user
 import sqlite3 as sql
@@ -6,6 +7,7 @@ from resources.auto import create_auto
 from flask_jwt_extended import JWTManager
 from security import login
 from security import me
+from resources.orders import create_orders
 
 
 app = Flask(__name__)
@@ -85,7 +87,27 @@ def userroles():
 @app.route("/orders")
 def orders():
     conn = get_db_connection()
-    rows = conn.execute("select * from orders").fetchall()
+    rows = conn.execute("select orders.id, orders.begin_datum, orders.eind_datum, orders.betaald, orders.vrije_kilometers, orders.auto_id, users.id, users.firstname, users.Tussenvoegsel, users.lastname from orders INNER JOIN users on orders.user_id = users.id").fetchall()
+    data = convertRows(rows)
+    conn.close()
+    return jsonify(data)
+
+
+# @app.route("/orders", methods=['GET', 'POST'])
+# def orders():
+#     if request.method == 'GET':
+#         conn = get_db_connection()
+#         rows = conn.execute("select orders.id, orders.begin_datum, orders.eind_datum, orders.betaald, orders.vrije_kilometers, orders.auto_id, users.id, users.firstname, users.Tussenvoegsel, users.lastname from orders INNER JOIN users on orders.user_id = users.id").fetchall()
+#         data = convertRows(rows)
+#         conn.close()
+#         return jsonify(data)
+#     elif request.method == 'POST':
+
+@app.route("/orders/<id>")
+def order(id):
+    conn = get_db_connection()
+    rows = conn.execute(
+        "SELECT * from orders where orders.id=?", [id]).fetchall()
     data = convertRows(rows)
     conn.close()
     return jsonify(data)
@@ -103,6 +125,7 @@ def users():
 app.add_url_rule("/me", None, me, methods=['GET'])
 
 app.add_url_rule('/auto', None, create_auto, methods=['POST'])
+app.add_url_rule('/orders', None, create_orders, methods=['POST'])
 
 
 # JWT routes

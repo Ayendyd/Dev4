@@ -4,23 +4,22 @@ from ast import arg
 from database.autodb import DB
 
 
-def create_auto():
+def create_orders():
 
     # Parse all arguments for validity
 
     args = request.get_json()
-    
 
     # Make the insert query with parameters
     qry = '''''''''''''''
  INSERT INTO
 
-       `auto`
-           (`Naam`, `Model`, `Kleur`, `Brandstof`, `Transmissie`, `GPS`, `Bouwjaar`, `Vermogen`, `Categorie_id`)
+       `orders`
+           (`user_id`, `begin_datum`, `eind_datum`, `vrije_kilometers`, `auto_id`)
 
       VALUES
       
-           (:Naam, :Model, :Kleur, :Brandstof, :Transmissie, :GPS, :Bouwjaar, :Vermogen, :Categorie_id)
+           (:user_id, :begin_datum, :eind_datum, :vrije_kilometers, :auto_id)
 
    '''''''''''''''
 

@@ -23,6 +23,55 @@ function register(e) {
   });
 }
 
+async function Reserveren(e) {
+  const response = await fetch(APIME, {
+    method: "GET",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + getCookie("token"),
+    },
+  });
+  const Data = await response.json();
+
+  data = {
+    user_id: Data.user.id,
+    begin_datum: getValue("BeginDatum"),
+    eind_datum: getValue("EindDatum"),
+    auto_id: getValue("AAA"),
+    vrije_kilometers: getValue("vrije_kilometers"),
+  };
+
+  // Submit data to API
+  api("orders", "POST", data).then((res) => {
+    if (res.message == "success") {
+      alert("User created");
+    }
+  });
+}
+
+function addAuto(e) {
+  // Fetch data from html
+
+  data = {
+    Naam: getValue("Naam"),
+    Model: getValue("Model"),
+    Kleur: getValue("Kleur"),
+    Brandstof: getValue("Brandstof"),
+    Transmissie: getValue("Transmissie"),
+    GPS: getValue("GPS"),
+    Bouwjaar: getValue("Bouwjaar"),
+    Vermogen: getValue("Vermogen"),
+    Categorie_id: getValue("Categorie_id"),
+  };
+  // Submit data to API
+  api("auto", "POST", data).then((res) => {
+    if (res.message == "success") {
+      alert("Auto created");
+    }
+  });
+}
+
 function login() {
   // Fetch data from html
   data = {
@@ -39,11 +88,80 @@ function login() {
   });
 }
 
-function getUser() {
-  // Fetch user data from API
+// function login() {
+//   const roleId = req.users.userroles_id;
+//   // Fetch data from html
+//   data = {
+//     password: getValue("password2"),
+//     email: getValue("email2"),
+//   };
+//   // Submit data to API
+//   api("auth", "POST", data).then((res) => {
+//     if (roleId == 1) {
+//       setCookie("token", res.access_token, 365);
+//       showPage("mainPage");
+//       getUser();
+//     }
+//   });
+// }
+
+// Fetch user data from API
+const APIME = "http://localhost:5000/me";
+
+async function getUser() {
+  const response = await fetch(APIME, {
+    method: "GET",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + getCookie("token"),
+    },
+  });
+  const data = await response.json();
+
+  if (data.user.userroles_id == 1) {
+    showPage("MwPagina");
+    HidePage("mainPage");
+  }
+  document.getElementById("naampje").textContent = data.user.firstname;
+  document.getElementById("achternaampje").textContent = data.user.lastname;
+  document.getElementById("user_id").textContent = data.user.id;
+
+  console.log(data);
 }
 
-function logout() {}
+// {
+//   setCookie("token", res.access_token, 365);
+//   showPage("mainPage");
+//   getUser() ;
+// }
+
+// Fetch user data from API
+const APIAUTO = "http://localhost:5000/auto";
+
+async function getAuto() {
+  const response = await fetch(APIAUTO, {
+    method: "GET",
+    mode: "cors",
+  });
+  const data = await response.json();
+
+  document.getElementById("Autonaam0").textContent = data[0].Naam;
+  document.getElementById("Autonaam1").textContent = data[1].Naam;
+  document.getElementById("Autonaam2").textContent = data[2].Naam;
+  document.getElementById("Automodel0").textContent = data[0].Model;
+  document.getElementById("Automodel1").textContent = data[1].Model;
+  document.getElementById("Automodel2").textContent = data[2].Model;
+  document.getElementById("Autokleur0").textContent = data[0].Kleur;
+  document.getElementById("Autokleur1").textContent = data[1].Kleur;
+  document.getElementById("Autokleur2").textContent = data[2].Kleur;
+  document.getElementById("Autobrandstof2").textContent = data[2].Brandstof;
+  document.getElementById("Autobrandstof0").textContent = data[0].Brandstof;
+  document.getElementById("Autobrandstof1").textContent = data[1].Brandstof;
+}
+getAuto();
+
+// function logout() {}
 
 // Helper functions
 
@@ -55,9 +173,19 @@ function showPage(id) {
   document.getElementById(id).style.display = "block";
 }
 
+function HidePage(id) {
+  let pages = document.getElementsByClassName("container");
+  for (let i = 0; i < pages.length; i++) {
+    pages[i].style.display = "none";
+  }
+  document.getElementById(id).style.display = "none";
+}
+
 function bindEvents() {
   connectButton("register", register);
   connectButton("login", login);
+  connectButton("toevoegen", addAuto);
+  connectButton("reserveren", Reserveren);
   enableSubmits();
 }
 

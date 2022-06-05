@@ -1,4 +1,5 @@
 
+from asyncio import constants
 from flask import request
 from ast import arg
 from database.autodb import DB
@@ -12,7 +13,7 @@ def create_user():
     args = request.get_json()
 
     # Make the insert query with parameters
-    qry =  '''''''''
+    qry = '''''''''
      INSERT INTO
 
        `users`
