@@ -40,6 +40,7 @@ async function Reserveren(e) {
     eind_datum: getValue("EindDatum"),
     auto_id: getValue("AAA"),
     vrije_kilometers: getValue("vrije_kilometers"),
+    levering: getValue("levering"),
   };
 
   // Submit data to API
@@ -83,6 +84,8 @@ function login() {
     if (res.message == "success") {
       setCookie("token", res.access_token, 365);
       showPage("mainPage");
+      inlogWaarde = 1;
+      loggedIn(1);
       getUser();
     }
   });
@@ -125,8 +128,6 @@ async function getUser() {
   }
   document.getElementById("naampje").textContent = data.user.firstname;
   document.getElementById("achternaampje").textContent = data.user.lastname;
-  document.getElementById("user_id").textContent = data.user.id;
-
   console.log(data);
 }
 
@@ -147,8 +148,11 @@ async function getAuto() {
   const data = await response.json();
 
   document.getElementById("Autonaam0").textContent = data[0].Naam;
+  document.getElementById("Autonaamm0").textContent = data[0].Naam;
   document.getElementById("Autonaam1").textContent = data[1].Naam;
   document.getElementById("Autonaam2").textContent = data[2].Naam;
+  document.getElementById("Autonaamm1").textContent = data[1].Naam;
+  document.getElementById("Autonaamm2").textContent = data[2].Naam;
   document.getElementById("Automodel0").textContent = data[0].Model;
   document.getElementById("Automodel1").textContent = data[1].Model;
   document.getElementById("Automodel2").textContent = data[2].Model;
@@ -186,6 +190,7 @@ function bindEvents() {
   connectButton("login", login);
   connectButton("toevoegen", addAuto);
   connectButton("reserveren", Reserveren);
+  connectButton("logoutt", logout);
   enableSubmits();
 }
 
@@ -257,6 +262,32 @@ function getCookie(cname) {
 
 function deleteCookie(cname) {
   setCookie(cname, "", -1);
+}
+
+let inlogWaarde = 0;
+
+function logout() {
+  getCookie("token");
+  deleteCookie("token");
+  getUser();
+  alert("Succesvol uitgelogd");
+  loggedIn(0);
+
+  inlogWaarde = 0;
+}
+
+function loggedIn(inlogWaarde) {
+  if (inlogWaarde == 1) {
+    console.log(`inlogWaarde is nu ${inlogWaarde}`);
+    showPage("mainPage");
+    return true;
+  }
+  if (inlogWaarde == 0) {
+    console.log(`inlogWaarde is nu ${inlogWaarde}`);
+    showPage("loginPage");
+
+    return false;
+  }
 }
 
 bindEvents();

@@ -15,11 +15,11 @@ def create_orders():
  INSERT INTO
 
        `orders`
-           (`user_id`, `begin_datum`, `eind_datum`, `vrije_kilometers`, `auto_id`)
+           (`user_id`, `begin_datum`, `eind_datum`, `vrije_kilometers`, `auto_id`, `levering`)
 
       VALUES
       
-           (:user_id, :begin_datum, :eind_datum, :vrije_kilometers, :auto_id)
+           (:user_id, :begin_datum, :eind_datum, :vrije_kilometers, :auto_id, :levering)
 
    '''''''''''''''
 

@@ -19,26 +19,26 @@
     <!-- Register page -->
 <div class="container hidden" id="registerPage">
         
-        <input placeholder="firstname" type="text" name="firstname" id="firstname">
+        <input placeholder="firstname" type="text" name="firstname" id="firstname" required>
             
         <input placeholder="Tussenvoegsel" type="text" name="Tussenvoegsel" id="Tussenvoegsel">
 
-        <input placeholder="Lastname" type="text" name="lastname" id="lastname">
+        <input placeholder="Lastname" type="text" name="lastname" id="lastname" required>
 
             
-            <input placeholder=" email" type="text" name="email" id="email1">
+            <input placeholder=" email" type="text" name="email" id="email1" required>
         
 
             
-            <input placeholder="password" type="password" name="password" id="password1">
+            <input placeholder="password" type="password" name="password" id="password1" required>
         
         
             
-            <input placeholder="confirm" type="password" name="confirm" id="confirm">
+            <input placeholder="confirm" type="password" name="confirm" id="confirm" required>
 
-            <input placeholder="Telefoonnummer" type="text" name="Telefoonnummer" id="Telefoonnummer">
-            <input placeholder="Straat" type="text" name="Straat" id="Straat">
-            <input placeholder="Postcode" type="text" name="Postcode" id="Postcode">
+            <input placeholder="Telefoonnummer" type="text" name="Telefoonnummer" id="Telefoonnummer" required>
+            <input placeholder="Straat" type="text" name="Straat" id="Straat" required>
+            <input placeholder="Postcode" type="text" name="Postcode" id="Postcode" required>
        
         <div class="input">
             <button id="register">Register</button>
@@ -69,18 +69,29 @@
         <option  id="Autonaam1"></option>
         <option  id="Autonaam2"></option>
       </select>
-    
-
     </div>
+
+    <div class="input">
+        <select id="levering" class="form-select" aria-label="Default select example">
+            <option selected>levering:</option>
+            <option> Bezorgen</option>
+            <option> Ophalen</option>
+            
+          </select>
+        
+        </div>
+
         <div class="input">
 
-        <button id="reserveren">Register</button>
+        <button class="btn" id="reserveren">Reserveer</button>
     </div>
 </form>
-    <p>Already have an account? <a onclick="showPage('loginPage')">Login</a></p>
+    <p><a onclick="showPage('AutoPagina')"> <button class="btn" > Ga Terug</button></a></p>
 </div>
     
     <!-- Login page -->
+<div id="LoginLogin">
+
 <div class="container" id="loginPage">
         <div class="input">
             <span class="label">E-mail:</span>
@@ -96,6 +107,8 @@
         <p>Don't have an account yet? <span onclick="showPage('registerPage')">Register</span></p>
 </div>
 
+
+</div>
 
 
 
@@ -127,7 +140,7 @@
         <div class="input">
             <button id="toevoegen">Toevoegen</button>
         </div>
-        <p>Terug gaan? <a onclick="showPage('mainPage')">Annuleren</a></p>
+        <p>Terug gaan? <a  onclick=" HidePage('AddProductPage')">Annuleren</a></p>
 </div>
 
 
@@ -153,7 +166,7 @@
 
 
               <div id="register-btn" >
-                <button id="logout" class="btn"> Uitloggen</button>
+                <button onclick="logout()" class="btn"> Uitloggen</button>
                 <i class="far fa-user"></i>
               </div>
     
@@ -327,10 +340,10 @@
             
             <nav class="navbar">
                 <a onclick="showPage('mainPage'), HidePage('AutoPagina')" >home</a>
-                <a onclick="showPage('AutoPagina'), HidePage('mainPage')" >>Auto's</a>
+                <a onclick="showPage('AutoPagina'), HidePage('mainPage')" >Auto's</a>
                 <a href="#services">services</a>
                 <a href="#reviews">Medewerkers</a>
-                <a onclick="showPage('ReservatiesPagina'), HidePage('mainPage')" >Reservaties</a>
+                <a onclick="showPage('ReservatiesPagina'), HidePage('mainPage'), HidePage('AutoPagina')" >Reservaties</a>
             </nav>
         
         
@@ -338,7 +351,7 @@
            
         
             <div id="register-btn" >
-                <button id="logout" class="btn"> Uitloggen</button>
+                <button onclick="logout()" class="btn"> Uitloggen</button>
                 <i class="far fa-user"></i>
             </div>          
          </header> 
@@ -349,7 +362,7 @@
             <div class="box-container">
               <div class="box">
                     <i class="fas fa-car"></i>
-                    <h3 id="Autonaam0"></h3>
+                    <h3 id="Autonaamm0"></h3>
                     <li id="Automodel0"></li>
                     <li id="Autokleur0"></li>
                   <li id="Autobrandstof0"></li> 
@@ -359,7 +372,7 @@
 
                 <div class="box">
                     <i class="fas fa-car-crash"></i>
-                    <h3 id="Autonaam1"></h3>
+                    <h3 id="Autonaamm1"></h3>
                     <li id="Automodel1"></li>
                     <li id="Autokleur1"></li>
                   <li id="Autobrandstof1"></li> 
@@ -370,7 +383,7 @@
                 <div class="box">
                     <img src="" alt="">
                     <i class="fas fa-car-crash"></i>
-                    <h3 id="Autonaam2"></h3>
+                    <h3 id="Autonaamm2"></h3>
                     
                   <li id="Automodel2"></li>
                     <li id="Autokleur2"></li>
@@ -445,7 +458,7 @@
         
         <nav class="navbar">
             <a onclick="showPage('mainPage'), HidePage('AutoPagina')" >home</a>
-            <a onclick="showPage('AutoPagina'), HidePage('mainPage')" >>Auto's</a>
+            <a onclick="showPage('AutoPagina'), HidePage('mainPage')" >Auto's</a>
             <a href="#services">services</a>
             <a href="#reviews">Medewerkers</a>
             <a onclick="showPage('ReservatiesPagina'), HidePage('mainPage')" >Reservaties</a>
@@ -456,7 +469,7 @@
        
     
         <div id="register-btn" >
-            <button id="logout" class="btn"> Uitloggen</button>
+            <button onclick="logout()" class="btn"> Uitloggen</button>
             <i class="far fa-user"></i>
         </div>          
      </header> 
@@ -468,7 +481,7 @@
         <div class="box-container">   
 
             <div class="box">
-                <i class="fas fa-car"></i>
+                <i class="fas fa-bars"></i>
                 <h3>Product Toevoegen</h3>
                 <p>Bij ons huur je een auto vanaf 60 euro per dag waarbij je gratis een extra bestuurder hebt.  </p>
                 <div id="register-btn" class="btn">
