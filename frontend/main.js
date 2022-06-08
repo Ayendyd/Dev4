@@ -221,7 +221,6 @@ async function getAuto() {
   document.getElementById("Autobrandstof5").textContent = data[5].Brandstof;
   document.getElementById("AutoID5").textContent = data[5].id;
 
-
   document.getElementById("Autonaamm6").textContent = data[6].Naam;
   document.getElementById("Automodel6").textContent = data[6].Model;
   document.getElementById("Autokleur6").textContent = data[6].Kleur;
@@ -253,7 +252,7 @@ async function getAuto() {
   document.getElementById("AutoID10").textContent = data[10].id;
 
   document.getElementById("Autonaamm11").textContent = data[11].Naam;
-  document.getElementById("Automodel1").textContent = data[11].Model;
+  document.getElementById("Automodel11").textContent = data[11].Model;
   document.getElementById("Autokleur11").textContent = data[11].Kleur;
   document.getElementById("Autobrandstof11").textContent = data[11].Brandstof;
   document.getElementById("AutoID11").textContent = data[11].id;
@@ -263,9 +262,6 @@ async function getAuto() {
   // document.getElementById("Autokleur12").textContent = data[12].Kleur;
   // document.getElementById("Autobrandstof12").textContent = data[12].Brandstof;
   // document.getElementById("AutoID12").textContent = data[12].id;
-
-
-
 }
 getAuto();
 
@@ -410,7 +406,6 @@ async function getReservering() {
   document.getElementById("userid010").textContent = data[10].user_id;
 
   console.log(data);
-
 }
 
 getReservering();
