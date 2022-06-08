@@ -202,7 +202,6 @@ async function getAuto() {
   document.getElementById("Autobrandstof1").textContent = data[1].Brandstof;
   document.getElementById("AutoID2").textContent = data[2].id;
   document.getElementById("AutoID0").textContent = data[0].id;
-
   document.getElementById("AutoID1").textContent = data[1].id;
 }
 getAuto();
@@ -217,17 +216,117 @@ async function getReservering() {
 
   // document.getElementById("TestTest").textContent = data[0];
   // document.getElementById("Autonaamm0").textContent = data[0];
-  document.getElementById("AutoID00").textContent = data[0].auto_id;
+
   // document.getElementById("AutoID01").textContent = data[1].auto_id;
   // document.getElementById("AutoID02").textContent = data[2].auto_id;
-  document.getElementById("ID00").textContent = data[0].id;
+
   // document.getElementById("ID01").textContent = data[1].id;
   // document.getElementById("ID02").textContent = data[2].id;
   // document.getElementById("userid00").textContent = data[0].orders.usersid;
   // document.getElementById("ID01").textContent = data[1].id;
   // document.getElementById("ID02").textContent = data[2].id;
+  document.getElementById("AutoID00").textContent = data[0].auto_id;
+  document.getElementById("ID00").textContent = data[0].id;
   document.getElementById("autokleur0").textContent = data[0].Kleur;
+  document.getElementById("voornaamm0").textContent = data[0].firstname;
+  document.getElementById("begindatumm0").textContent = data[0].begin_datum;
+  document.getElementById("einddatumm0").textContent = data[0].eind_datum;
+  document.getElementById("Autonaam0").textContent = data[0].Naam;
+  document.getElementById("modell0").textContent = data[0].Model;
+  document.getElementById("vrijekm0").textContent = data[0].vrije_kilometers;
+  document.getElementById("userid0").textContent = data[0].user_id;
 
+  document.getElementById("AutoID001").textContent = data[1].auto_id;
+  document.getElementById("ID001").textContent = data[1].id;
+  document.getElementById("autokleur01").textContent = data[1].Kleur;
+  document.getElementById("voornaamm01").textContent = data[1].firstname;
+  document.getElementById("begindatumm01").textContent = data[1].begin_datum;
+  document.getElementById("einddatumm01").textContent = data[1].eind_datum;
+  document.getElementById("Autonaam01").textContent = data[1].Naam;
+  document.getElementById("modell01").textContent = data[1].Model;
+  document.getElementById("vrijekm01").textContent = data[1].vrije_kilometers;
+  document.getElementById("userid01").textContent = data[1].user_id;
+
+  document.getElementById("AutoID002").textContent = data[2].auto_id;
+  document.getElementById("ID002").textContent = data[2].id;
+  document.getElementById("autokleur02").textContent = data[2].Kleur;
+  document.getElementById("voornaamm02").textContent = data[2].firstname;
+  document.getElementById("begindatumm02").textContent = data[2].begin_datum;
+  document.getElementById("einddatumm02").textContent = data[2].eind_datum;
+  document.getElementById("Autonaam02").textContent = data[2].Naam;
+  document.getElementById("modell02").textContent = data[2].Model;
+  document.getElementById("vrijekm02").textContent = data[2].vrije_kilometers;
+  document.getElementById("userid02").textContent = data[2].user_id;
+
+  document.getElementById("AutoID003").textContent = data[3].auto_id;
+  document.getElementById("ID003").textContent = data[3].id;
+  document.getElementById("autokleur03").textContent = data[3].Kleur;
+  document.getElementById("voornaamm03").textContent = data[3].firstname;
+  document.getElementById("begindatumm03").textContent = data[3].begin_datum;
+  document.getElementById("einddatumm03").textContent = data[3].eind_datum;
+  document.getElementById("Autonaam03").textContent = data[3].Naam;
+  document.getElementById("modell03").textContent = data[3].Model;
+  document.getElementById("vrijekm03").textContent = data[3].vrije_kilometers;
+  document.getElementById("userid03").textContent = data[3].user_id;
+
+  document.getElementById("AutoID00").textContent = data[0].auto_id;
+  document.getElementById("ID00").textContent = data[0].id;
+  document.getElementById("autokleur0").textContent = data[0].Kleur;
+  document.getElementById("voornaamm0").textContent = data[0].firstname;
+  document.getElementById("begindatumm0").textContent = data[0].begin_datum;
+  document.getElementById("einddatumm0").textContent = data[0].eind_datum;
+  document.getElementById("Autonaam0").textContent = data[0].Naam;
+  document.getElementById("modell0").textContent = data[0].Model;
+  document.getElementById("vrijekm0").textContent = data[0].vrije_kilometers;
+  document.getElementById("userid0").textContent = data[0].user_id;
+
+  document.getElementById("AutoID00").textContent = data[0].auto_id;
+  document.getElementById("ID00").textContent = data[0].id;
+  document.getElementById("autokleur0").textContent = data[0].Kleur;
+  document.getElementById("voornaamm0").textContent = data[0].firstname;
+  document.getElementById("begindatumm0").textContent = data[0].begin_datum;
+  document.getElementById("einddatumm0").textContent = data[0].eind_datum;
+  document.getElementById("Autonaam0").textContent = data[0].Naam;
+  document.getElementById("modell0").textContent = data[0].Model;
+  document.getElementById("vrijekm0").textContent = data[0].vrije_kilometers;
+  document.getElementById("userid0").textContent = data[0].user_id;
+
+  document.getElementById("AutoID00").textContent = data[0].auto_id;
+  document.getElementById("ID00").textContent = data[0].id;
+  document.getElementById("autokleur0").textContent = data[0].Kleur;
+  document.getElementById("voornaamm0").textContent = data[0].firstname;
+  document.getElementById("begindatumm0").textContent = data[0].begin_datum;
+  document.getElementById("einddatumm0").textContent = data[0].eind_datum;
+  document.getElementById("Autonaam0").textContent = data[0].Naam;
+  document.getElementById("modell0").textContent = data[0].Model;
+  document.getElementById("vrijekm0").textContent = data[0].vrije_kilometers;
+  document.getElementById("userid0").textContent = data[0].user_id;
+
+  document.getElementById("AutoID00").textContent = data[0].auto_id;
+  document.getElementById("ID00").textContent = data[0].id;
+  document.getElementById("autokleur0").textContent = data[0].Kleur;
+  document.getElementById("voornaamm0").textContent = data[0].firstname;
+  document.getElementById("begindatumm0").textContent = data[0].begin_datum;
+  document.getElementById("einddatumm0").textContent = data[0].eind_datum;
+  document.getElementById("Autonaam0").textContent = data[0].Naam;
+  document.getElementById("modell0").textContent = data[0].Model;
+  document.getElementById("vrijekm0").textContent = data[0].vrije_kilometers;
+  document.getElementById("userid0").textContent = data[0].user_id;
+
+  document.getElementById("AutoID00").textContent = data[0].auto_id;
+  document.getElementById("ID00").textContent = data[0].id;
+  document.getElementById("autokleur0").textContent = data[0].Kleur;
+  document.getElementById("voornaamm0").textContent = data[0].firstname;
+  document.getElementById("begindatumm0").textContent = data[0].begin_datum;
+  document.getElementById("einddatumm0").textContent = data[0].eind_datum;
+  document.getElementById("Autonaam0").textContent = data[0].Naam;
+  document.getElementById("modell0").textContent = data[0].Model;
+  document.getElementById("vrijekm0").textContent = data[0].vrije_kilometers;
+  document.getElementById("userid0").textContent = data[0].user_id;
+
+  document.getElementById("AutoID00").textContent = data[0].auto_id;
+  document.getElementById("ID00").textContent = data[0].id;
+  document.getElementById("autokleur0").textContent = data[0].Kleur;
   document.getElementById("voornaamm0").textContent = data[0].firstname;
   document.getElementById("begindatumm0").textContent = data[0].begin_datum;
   document.getElementById("einddatumm0").textContent = data[0].eind_datum;
