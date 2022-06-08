@@ -4,6 +4,11 @@ from flask import request
 from ast import arg
 from database.autodb import DB
 from flask_bcrypt import generate_password_hash
+from flask_jwt_extended import (
+    jwt_required,
+    create_access_token,
+    get_jwt_identity
+)
 
 
 def create_user():

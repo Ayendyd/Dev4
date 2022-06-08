@@ -2,8 +2,14 @@
 from flask import request
 from ast import arg
 from database.autodb import DB
+from flask_jwt_extended import (
+    jwt_required,
+    create_access_token,
+    get_jwt_identity
+)
 
 
+@jwt_required()
 def create_orders():
 
     # Parse all arguments for validity

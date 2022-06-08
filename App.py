@@ -8,6 +8,7 @@ from flask_jwt_extended import JWTManager
 from security import login
 from security import me
 from resources.orders import create_orders
+from resources.auto import update_auto
 
 
 app = Flask(__name__)
@@ -87,7 +88,7 @@ def userroles():
 @app.route("/orders")
 def orders():
     conn = get_db_connection()
-    rows = conn.execute("select orders.id, orders.begin_datum, orders.eind_datum, orders.betaald, orders.vrije_kilometers, orders.auto_id, users.id, users.firstname, users.Tussenvoegsel, users.lastname from orders INNER JOIN users on orders.user_id = users.id").fetchall()
+    rows = conn.execute("select orders.id, orders.begin_datum, orders.eind_datum, orders.user_id, orders.betaald, orders.vrije_kilometers, orders.auto_id, users.id, users.firstname, users.Tussenvoegsel, users.lastname, auto.Naam, auto.Model, auto.Kleur, auto.Bouwjaar, auto.id from orders INNER JOIN users on orders.user_id = users.id INNER JOIN auto on orders.auto_id = auto.id").fetchall()
     data = convertRows(rows)
     conn.close()
     return jsonify(data)
@@ -103,6 +104,7 @@ def orders():
 #         return jsonify(data)
 #     elif request.method == 'POST':
 
+
 @app.route("/orders/<id>")
 def order(id):
     conn = get_db_connection()
@@ -111,6 +113,16 @@ def order(id):
     data = convertRows(rows)
     conn.close()
     return jsonify(data)
+
+
+# @app.route('/users/<int:user_id>/orders')
+# def orderMe(user_id):
+#     conn = get_db_connection()
+#     rows = conn.execute(
+#         "SELECT * from orders where user_id=?", [user_id]).fetchall()
+#     data = convertRows(rows)
+#     conn.close()
+#     return jsonify(data)
 
 
 @app.route("/users")
@@ -122,10 +134,23 @@ def users():
     return jsonify(data)
 
 
+@app.route("/auto/<id>")
+def autos(id):
+    conn = get_db_connection()
+    rows = conn.execute(
+        "SELECT * from auto where auto.id=?", [id]).fetchall()
+    data = convertRows(rows)
+    conn.close()
+    return jsonify(data)
+
+
 app.add_url_rule("/me", None, me, methods=['GET'])
 
+
 app.add_url_rule('/auto', None, create_auto, methods=['POST'])
+
 app.add_url_rule('/orders', None, create_orders, methods=['POST'])
+app.add_url_rule('/auto/<id>', None, update_auto, methods=['PATCH'])
 
 
 # JWT routes

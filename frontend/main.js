@@ -1,3 +1,4 @@
+let inlogWaarde = 0;
 function register(e) {
   // Check if passwords match
   if (getValue("password1") != getValue("confirm")) {
@@ -23,6 +24,30 @@ function register(e) {
   });
 }
 
+async function ME() {
+  const response = await fetch(APIME, {
+    method: "GET",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + getCookie("token"),
+    },
+  });
+  const Data = await response.json();
+  if (inlogWaarde == 0) {
+    alert("Geen rechten!");
+  }
+  if (Data.user.userroles_id == 1) {
+    showPage("MwPagina");
+    HidePage("mainPage"),
+      HidePage("reviewsPagina"),
+      HidePage("AutoPagina"),
+      HidePage("ReservatiesPagina");
+  } else {
+    alert("Je bent geen medewerker!");
+  }
+}
+
 async function Reserveren(e) {
   const response = await fetch(APIME, {
     method: "GET",
@@ -33,22 +58,29 @@ async function Reserveren(e) {
     },
   });
   const Data = await response.json();
+  if ((Data.user.userroles_id == 1, 2)) {
+    data = {
+      user_id: Data.user.id,
+      begin_datum: getValue("BeginDatum"),
+      eind_datum: getValue("EindDatum"),
+      vrije_kilometers: getValue("vrije_kilometers"),
+      levering: getValue("levering"),
+      auto_id: getValue("AAA"),
+    };
 
-  data = {
-    user_id: Data.user.id,
-    begin_datum: getValue("BeginDatum"),
-    eind_datum: getValue("EindDatum"),
-    auto_id: getValue("AAA"),
-    vrije_kilometers: getValue("vrije_kilometers"),
-    levering: getValue("levering"),
-  };
+    // Submit data to API
+    api("orders", "POST", data).then((res) => {
+      if (res.message == "success") {
+        alert("User created");
+      }
+    });
+  } else {
+    alert("Geen rechten!");
+  }
 
-  // Submit data to API
-  api("orders", "POST", data).then((res) => {
-    if (res.message == "success") {
-      alert("User created");
-    }
-  });
+  if (inlogWaarde == 0) {
+    alert("Geen rechten!");
+  }
 }
 
 function addAuto(e) {
@@ -84,6 +116,8 @@ function login() {
     if (res.message == "success") {
       setCookie("token", res.access_token, 365);
       showPage("mainPage");
+      showPage("LogoutLink");
+      HidePage("LoginLink");
       inlogWaarde = 1;
       loggedIn(1);
       getUser();
@@ -121,6 +155,11 @@ async function getUser() {
     },
   });
   const data = await response.json();
+  if (data.message == "success") {
+    inlogWaarde = 1;
+    loggedIn(1);
+    showPage("mainPage");
+  }
 
   if (data.user.userroles_id == 1) {
     showPage("MwPagina");
@@ -131,6 +170,7 @@ async function getUser() {
   console.log(data);
 }
 
+// getUserr();
 // {
 //   setCookie("token", res.access_token, 365);
 //   showPage("mainPage");
@@ -147,10 +187,8 @@ async function getAuto() {
   });
   const data = await response.json();
 
-  document.getElementById("Autonaam0").textContent = data[0].Naam;
   document.getElementById("Autonaamm0").textContent = data[0].Naam;
-  document.getElementById("Autonaam1").textContent = data[1].Naam;
-  document.getElementById("Autonaam2").textContent = data[2].Naam;
+
   document.getElementById("Autonaamm1").textContent = data[1].Naam;
   document.getElementById("Autonaamm2").textContent = data[2].Naam;
   document.getElementById("Automodel0").textContent = data[0].Model;
@@ -162,9 +200,46 @@ async function getAuto() {
   document.getElementById("Autobrandstof2").textContent = data[2].Brandstof;
   document.getElementById("Autobrandstof0").textContent = data[0].Brandstof;
   document.getElementById("Autobrandstof1").textContent = data[1].Brandstof;
+  document.getElementById("AutoID2").textContent = data[2].id;
+  document.getElementById("AutoID0").textContent = data[0].id;
+
+  document.getElementById("AutoID1").textContent = data[1].id;
 }
 getAuto();
 
+const apires = "http://localhost:5000/orders";
+async function getReservering() {
+  const response = await fetch(apires, {
+    method: "GET",
+    mode: "cors",
+  });
+  const data = await response.json();
+
+  // document.getElementById("TestTest").textContent = data[0];
+  // document.getElementById("Autonaamm0").textContent = data[0];
+  document.getElementById("AutoID00").textContent = data[0].auto_id;
+  // document.getElementById("AutoID01").textContent = data[1].auto_id;
+  // document.getElementById("AutoID02").textContent = data[2].auto_id;
+  document.getElementById("ID00").textContent = data[0].id;
+  // document.getElementById("ID01").textContent = data[1].id;
+  // document.getElementById("ID02").textContent = data[2].id;
+  // document.getElementById("userid00").textContent = data[0].orders.usersid;
+  // document.getElementById("ID01").textContent = data[1].id;
+  // document.getElementById("ID02").textContent = data[2].id;
+  document.getElementById("autokleur0").textContent = data[0].Kleur;
+
+  document.getElementById("voornaamm0").textContent = data[0].firstname;
+  document.getElementById("begindatumm0").textContent = data[0].begin_datum;
+  document.getElementById("einddatumm0").textContent = data[0].eind_datum;
+  document.getElementById("Autonaam0").textContent = data[0].Naam;
+  document.getElementById("modell0").textContent = data[0].Model;
+  document.getElementById("vrijekm0").textContent = data[0].vrije_kilometers;
+  document.getElementById("userid0").textContent = data[0].user_id;
+
+  console.log(data);
+}
+
+getReservering();
 // function logout() {}
 
 // Helper functions
@@ -192,6 +267,8 @@ function bindEvents() {
   connectButton("reserveren", Reserveren);
   connectButton("logoutt", logout);
   enableSubmits();
+
+  getUser();
 }
 
 function enableSubmits() {
@@ -264,27 +341,40 @@ function deleteCookie(cname) {
   setCookie(cname, "", -1);
 }
 
-let inlogWaarde = 0;
-
 function logout() {
   getCookie("token");
   deleteCookie("token");
   getUser();
   alert("Succesvol uitgelogd");
   loggedIn(0);
+  HidePage("LogoutLink");
+  showPage("LoginLink");
 
   inlogWaarde = 0;
 }
+
+// function hideAllPages() {
+//   HidePage("mainPage"), HidePage("MwPagina"), HidePage("ReservatiesPagina");
+//   HidePage("AutoPagina");
+//   HidePage("reviewsPagina");
+//   HidePage("registerPage");
+//   HidePage("loginPage");
+//   HidePage("ReserveerPage");
+// }
 
 function loggedIn(inlogWaarde) {
   if (inlogWaarde == 1) {
     console.log(`inlogWaarde is nu ${inlogWaarde}`);
     showPage("mainPage");
+    showPage("LogoutLink");
+    HidePage("LoginLink");
+
     return true;
   }
   if (inlogWaarde == 0) {
     console.log(`inlogWaarde is nu ${inlogWaarde}`);
-    showPage("loginPage");
+    showPage("mainPage");
+    HidePage("MwPagina");
 
     return false;
   }

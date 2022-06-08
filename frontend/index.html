@@ -17,7 +17,7 @@
 </head>
     <body class="wh">
     <!-- Register page -->
-<div class="container hidden" id="registerPage">
+<div class="containerr hidden" id="registerPage">
         
         <input placeholder="firstname" type="text" name="firstname" id="firstname" required>
             
@@ -61,15 +61,11 @@
         <span class="label">Vrije Kilometers:</span>
         <input type="number" name="vrije_kilometers" id="vrije_kilometers">
     </div>
-    
     <div class="input">
-    <select id="AAA" class="form-select" aria-label="Default select example">
-        <option id="Autonaampje" selected>Open this select menu</option>
-        <option  id="Autonaam0" ></option>
-        <option  id="Autonaam1"></option>
-        <option  id="Autonaam2"></option>
-      </select>
+        <span class="label">Auto ID:</span>
+        <input type="number" name="AAA" id="AAA">
     </div>
+   
 
     <div class="input">
         <select id="levering" class="form-select" aria-label="Default select example">
@@ -92,7 +88,7 @@
     <!-- Login page -->
 <div id="LoginLogin">
 
-<div class="container" id="loginPage">
+<div class="container hidden" id="loginPage">
         <div class="input">
             <span class="label">E-mail:</span>
             <input type="text" name="email" id="email2">
@@ -148,32 +144,79 @@
         <script src="main.js"></script>
         <body>
         <!-- User info page -->
-
-<div class=" hidden" id="mainPage">
-
         <header class="header">
 
-        <div id="menu-btn" class="fas fa-bars"></div>
-        <a href="#" class="logo"> <span>Huur</span>wielen </a>
-
-     <nav class="navbar">
-        <a  onclick="showPage('AutoPagina'), HidePage('mainPage')" >Auto's</a>
-        <a href="#services">services</a>
-        <a href="#reviews">Medewerkers</a>
-        <a onclick="showPage('ReservatiesPagina'), HidePage('mainPage')" >Reservaties</a>
-    </nav>
-
-
-
-              <div id="register-btn" >
-                <button onclick="logout()" class="btn"> Uitloggen</button>
-                <i class="far fa-user"></i>
-              </div>
+            
+            <a href="#" class="logo"> <span>Huur</span>wielen </a>
     
+         <nav class="navbar">
+            <a onclick="showPage('mainPage'), HidePage('AutoPagina'), HidePage('MwPagina'), HidePage('ReservatiesPagina'), HidePage('reviewsPagina')" >home</a>
+            <a onclick="showPage('AutoPagina'), HidePage('mainPage'), HidePage('MwPagina'), HidePage('ReservatiesPagina'), HidePage('reviewsPagina')" >Auto's</a>
+            <a onclick="ME()">Medewerkers</a>
+            <a></a>
+            <a></a>
+            <a></a>
+            <i onclick="showPage('reviewsPagina'), HidePage('mainPage'), HidePage('MwPagina'), HidePage('AutoPagina'), HidePage('ReservatiesPagina')" class="far fa-user btn"></i>
+        </nav>
     
-         </header> 
+        <div id="register-btn" >
+            <button onclick="showPage('loginPage')" id="LoginLink" class="btn"> Login</button>
+            <i  class="far fa-user "></i>
+          </div>
+    
+                  <div id="register-btn LogoutLink" >
+                    <button onclick="logout()" id="LogoutLink" class="btn hidden"> Logout</button>
+                    
+                  </div>
+        
+        
+             </header> 
 
-    <p>Terug gaan? <a onclick="showPage('mainPage')">Annuleren</a></p>
+    
+             <section class="services hidden" id="reviewsPagina">
+   
+                <h1 class="heading"> Voor <span>medewerkers</span> </h1>
+            
+                <div class="box-container">
+        
+                    
+            
+                    <div class="box">
+                        <i class="fas fa-car"></i>
+                        <h3>Mijn Reservaties</h3>
+                        <p>Bij ons huur je een auto vanaf 60 euro per dag waarbij je gratis een extra bestuurder hebt.  </p>
+                        <div id="register-btn" class="btn">
+                            
+            <a onclick="showPage('ReservatiesPagina'), HidePage('mainPage'), HidePage('MwPagina'), HidePage('AutoPagina'), HidePage('reviewsPagina')" >Reservaties</a>
+                            <i class="far fa-user"></i>
+                        </div>
+                    </div>
+            
+                   
+            
+                    <div class="box">
+                        <i class="fas fa-users"></i>
+                        <h3>Uw gegevens:</h3>
+                        <p> Voornaam: <span id="naampje"></span></p>
+                        <p> Achternaam: <span id="achternaampje"></span></br ></p>
+                       
+                    </div>
+            
+                    <div class="box">
+                        <i class="fas fa-headset"></i>
+                        <h3>24/7 support</h3>
+                        <p>We zijn voor onze klanten 24/7 bereikbaar daarnaast heb je gratis pechhulp van de ANWB.</p>
+                        <a href="#" class="btn"> Lees meer</a>
+                    </div>
+            
+                </div>
+            </section>
+             
+<div  id="mainPage">
+
+   
+
+    
 
     
     <section class="home" id="home">
@@ -251,44 +294,6 @@
     </section>
 
 
-    <section class="services" id="reviews">
-   
-        <h1 class="heading"> Voor <span>medewerkers</span> </h1>
-    
-        <div class="box-container">
-
-            
-    
-            <div class="box">
-                <i class="fas fa-car"></i>
-                <h3>TestFase</h3>
-                <p>Bij ons huur je een auto vanaf 60 euro per dag waarbij je gratis een extra bestuurder hebt.  </p>
-                <div id="register-btn" class="btn">
-                    
-                    <i class="far fa-user"></i>
-                </div>
-            </div>
-    
-           
-    
-            <div class="box">
-                <i class="fas fa-users"></i>
-                <h3>Uw gegevens:</h3>
-                <p> Voornaam: <span id="naampje"></span></p>
-                <p> Achternaam: <span id="achternaampje"></span></br ></p>
-                <a href="#" class="btn"> Lees meer</a>
-            </div>
-    
-            <div class="box">
-                <i class="fas fa-headset"></i>
-                <h3>24/7 support</h3>
-                <p>We zijn voor onze klanten 24/7 bereikbaar daarnaast heb je gratis pechhulp van de ANWB.</p>
-                <a href="#" class="btn"> Lees meer</a>
-            </div>
-    
-        </div>
-    </section>
-   
     <section class="services" id="services">
    
        <h1 class="heading"> Onze <span>medewerkers</span> </h1>
@@ -334,27 +339,7 @@
    
    
 <div id="AutoPagina" class="hidden">
-             <header class="header">
-            <div id="menu-btn" class="fas fa-bars"></div>
-                <a href="#" class="logo"> <span>Huur</span>wielen </a>
-            
-            <nav class="navbar">
-                <a onclick="showPage('mainPage'), HidePage('AutoPagina')" >home</a>
-                <a onclick="showPage('AutoPagina'), HidePage('mainPage')" >Auto's</a>
-                <a href="#services">services</a>
-                <a href="#reviews">Medewerkers</a>
-                <a onclick="showPage('ReservatiesPagina'), HidePage('mainPage'), HidePage('AutoPagina')" >Reservaties</a>
-            </nav>
-        
-        
-            <!-- Login page -->
-           
-        
-            <div id="register-btn" >
-                <button onclick="logout()" class="btn"> Uitloggen</button>
-                <i class="far fa-user"></i>
-            </div>          
-         </header> 
+         
          
          <section class="services1" id="services">
                <h1 class="heading"> Onze <span>Auto's</span> </h1>
@@ -365,7 +350,9 @@
                     <h3 id="Autonaamm0"></h3>
                     <li id="Automodel0"></li>
                     <li id="Autokleur0"></li>
-                  <li id="Autobrandstof0"></li> 
+                    <li id="Autobrandstof0"></li> 
+                 <a> Auto ID: <a  id="AutoID0">Auto ID:</a></a>
+                  
                   <p> Reserveer deze auto</p>
                   <a onclick="showPage('ReserveerPage')" class="btn"> Reserveer!</a>
                 </div>
@@ -376,6 +363,7 @@
                     <li id="Automodel1"></li>
                     <li id="Autokleur1"></li>
                   <li id="Autobrandstof1"></li> 
+                  <a> Auto ID: <a  id="AutoID1">Auto ID:</a></a>
                     <p> Reserveer deze auto</p>
                     <a onclick="showPage('ReserveerPage')" class="btn"> Reserveer!</a>
                 </div>
@@ -388,6 +376,7 @@
                   <li id="Automodel2"></li>
                     <li id="Autokleur2"></li>
                   <li id="Autobrandstof2"></li> 
+                  <a> Auto ID: <a  id="AutoID2">Auto ID:</a></a>
                   <p> Reserveer deze auto</p>
                   <a onclick="showPage('ReserveerPage')" class="btn"> Reserveer!</a>                
                 </div>  
@@ -421,17 +410,16 @@
     
             <div class="box">
                 <i class="fas fa-users"></i>
-                <h3>Uw gegevens:</h3>
-                <p> Voornaam: <span id="naampje"></span></p>
-                <p> Achternaam: <span id="achternaampje"></span></br ></p>
-                <a href="#" class="btn"> Lees meer</a>
+                <h3>Alle Reservaties</h3>
+              
+                <a onclick="showPage('AlleReservatiesPagina'), HidePage('AutoPagina'), HidePage('mainPage'), HidePage('MwPagina'), HidePage('ReservatiesPagina'), HidePage('reviewsPagina')"  class="btn"> Bekijk</a>
             </div>
     
             <div class="box">
                 <i class="fas fa-car"></i>
                 <h3>Onze auto's</h3>
                 <p>We zijn voor onze klanten 24/7 bereikbaar daarnaast heb je gratis pechhulp van de ANWB.</p>
-                <a onclick="showPage('AutoPagina')" class="btn"> Bekijk!</a>
+                
             </div>
     
         </div>
@@ -448,52 +436,257 @@
 
 
 </div>
+
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+</style>
+
+<div class="home hidden" id="AlleReservatiesPagina">
+
+
+
+
+    <h1 class="heading"> Alle <span>Reservaties</span> </h1>
+
+<table id="customers">
+  <tr>
+    <th>Order ID</th>
+    <th>User ID</th>
+    <th>Voornaam</th>
+    <th>Begin Datum</th>
+    <th>Eind Datum</th>
+    <th>Auto_id</th>
+    <th>Automerk</th>
+    <th>Automodel</th>
+    <th>Kleur</th>
+    <th>Vrije Kilometers</th>
+  </tr>
+  <tr>
+    <td id="ID00"></td>
+    <td id="userid0"></td>
+    <td id="voornaamm0"></td>
+    <td id="begindatumm0"></td>
+    <td id="einddatumm0"></td>
+    <td id="AutoID00"></td>
+    <td id="Autonaam0"></td>
+    <td id="modell0"></td>
+    <td id="autokleur0"></td>
+    <td id="vrijekm0"></td>
+    
+  </tr>
+  <tr>
+    <td id="ID01"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    
+  </tr>
+
+  
+</table>
+
+
+
+</div>
  
     
    
 <div class="hidden" id="ReservatiesPagina">
-    <header class="header">
-        <div id="menu-btn" class="fas fa-bars"></div>
-            <a href="#" class="logo"> <span>Huur</span>wielen </a>
-        
-        <nav class="navbar">
-            <a onclick="showPage('mainPage'), HidePage('AutoPagina')" >home</a>
-            <a onclick="showPage('AutoPagina'), HidePage('mainPage')" >Auto's</a>
-            <a href="#services">services</a>
-            <a href="#reviews">Medewerkers</a>
-            <a onclick="showPage('ReservatiesPagina'), HidePage('mainPage')" >Reservaties</a>
-        </nav>
     
     
-        <!-- Login page -->
-       
-    
-        <div id="register-btn" >
-            <button onclick="logout()" class="btn"> Uitloggen</button>
-            <i class="far fa-user"></i>
-        </div>          
-     </header> 
-    
-    
-    <div class="home">
-    <section class="services" id="reviews">
+    <div class="home containerrr">
+ 
         <h1 class="heading"> Mijn <span>Reservaties</span> </h1>
-        <div class="box-container">   
 
-            <div class="box">
-                <i class="fas fa-bars"></i>
-                <h3>Product Toevoegen</h3>
-                <p>Bij ons huur je een auto vanaf 60 euro per dag waarbij je gratis een extra bestuurder hebt.  </p>
-                <div id="register-btn" class="btn">
-                    <button class="btn">Voeg toe</button>
-                    <i class="far fa-user"></i>
-                </div>
-            </div>
-    
-         
-    
-        </div>
-    </section>
+        <table id="customers">
+          <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+          </tr>
+          <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+          </tr>
+          <tr>
+            <td>Berglunds snabbköp</td>
+            <td>Christina Berglund</td>
+            <td>Sweden</td>
+          </tr>
+          <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+          </tr>
+          <tr>
+            <td>Ernst Handel</td>
+            <td>Roland Mendel</td>
+            <td>Austria</td>
+          </tr>
+          <tr>
+            <td>Island Trading</td>
+            <td>Helen Bennett</td>
+            <td>UK</td>
+          </tr>
+          <tr>
+            <td>Königlich Essen</td>
+            <td>Philip Cramer</td>
+            <td>Germany</td>
+          </tr>
+          <tr>
+            <td>Laughing Bacchus Winecellars</td>
+            <td>Yoshi Tannamuri</td>
+            <td>Canada</td>
+          </tr>
+          <tr>
+            <td>Magazzini Alimentari Riuniti</td>
+            <td>Giovanni Rovelli</td>
+            <td>Italy</td>
+          </tr>
+          <tr>
+            <td>North/South</td>
+            <td>Simon Crowther</td>
+            <td>UK</td>
+          </tr>
+          <tr>
+            <td>Paris spécialités</td>
+            <td>Marie Bertrand</td>
+            <td>France</td>
+          </tr>
+        </table>
 
         </div>
 </div>
