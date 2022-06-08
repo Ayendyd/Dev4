@@ -258,11 +258,11 @@ async function getAuto() {
   document.getElementById("Autobrandstof11").textContent = data[11].Brandstof;
   document.getElementById("AutoID11").textContent = data[11].id;
 
-  document.getElementById("Autonaamm12").textContent = data[12].Naam;
-  document.getElementById("Automodel12").textContent = data[12].Model;
-  document.getElementById("Autokleur12").textContent = data[12].Kleur;
-  document.getElementById("Autobrandstof12").textContent = data[12].Brandstof;
-  document.getElementById("AutoID12").textContent = data[12].id;
+  // document.getElementById("Autonaamm12").textContent = data[12].Naam;
+  // document.getElementById("Automodel12").textContent = data[12].Model;
+  // document.getElementById("Autokleur12").textContent = data[12].Kleur;
+  // document.getElementById("Autobrandstof12").textContent = data[12].Brandstof;
+  // document.getElementById("AutoID12").textContent = data[12].id;
 
 
 
