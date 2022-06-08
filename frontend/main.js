@@ -188,21 +188,84 @@ async function getAuto() {
   const data = await response.json();
 
   document.getElementById("Autonaamm0").textContent = data[0].Naam;
-
+  document.getElementById("Automodel0").textContent = data[0].Model;
+  document.getElementById("Autokleur0").textContent = data[0].Kleur;
+  document.getElementById("Autobrandstof0").textContent = data[0].Brandstof;
+  document.getElementById("AutoID0").textContent = data[0].id;
   document.getElementById("Autonaamm1").textContent = data[1].Naam;
   document.getElementById("Autonaamm2").textContent = data[2].Naam;
-  document.getElementById("Automodel0").textContent = data[0].Model;
   document.getElementById("Automodel1").textContent = data[1].Model;
   document.getElementById("Automodel2").textContent = data[2].Model;
-  document.getElementById("Autokleur0").textContent = data[0].Kleur;
   document.getElementById("Autokleur1").textContent = data[1].Kleur;
   document.getElementById("Autokleur2").textContent = data[2].Kleur;
   document.getElementById("Autobrandstof2").textContent = data[2].Brandstof;
-  document.getElementById("Autobrandstof0").textContent = data[0].Brandstof;
   document.getElementById("Autobrandstof1").textContent = data[1].Brandstof;
   document.getElementById("AutoID2").textContent = data[2].id;
-  document.getElementById("AutoID0").textContent = data[0].id;
   document.getElementById("AutoID1").textContent = data[1].id;
+
+  document.getElementById("Autonaamm3").textContent = data[3].Naam;
+  document.getElementById("Automodel3").textContent = data[3].Model;
+  document.getElementById("Autokleur3").textContent = data[3].Kleur;
+  document.getElementById("Autobrandstof3").textContent = data[3].Brandstof;
+  document.getElementById("AutoID3").textContent = data[3].id;
+
+  document.getElementById("Autonaamm4").textContent = data[4].Naam;
+  document.getElementById("Automodel4").textContent = data[4].Model;
+  document.getElementById("Autokleur4").textContent = data[4].Kleur;
+  document.getElementById("Autobrandstof4").textContent = data[4].Brandstof;
+  document.getElementById("AutoID4").textContent = data[4].id;
+
+  document.getElementById("Autonaamm5").textContent = data[5].Naam;
+  document.getElementById("Automodel5").textContent = data[5].Model;
+  document.getElementById("Autokleur5").textContent = data[5].Kleur;
+  document.getElementById("Autobrandstof5").textContent = data[5].Brandstof;
+  document.getElementById("AutoID5").textContent = data[5].id;
+
+
+  document.getElementById("Autonaamm6").textContent = data[6].Naam;
+  document.getElementById("Automodel6").textContent = data[6].Model;
+  document.getElementById("Autokleur6").textContent = data[6].Kleur;
+  document.getElementById("Autobrandstof6").textContent = data[6].Brandstof;
+  document.getElementById("AutoID6").textContent = data[6].id;
+
+  document.getElementById("Autonaamm7").textContent = data[7].Naam;
+  document.getElementById("Automodel7").textContent = data[7].Model;
+  document.getElementById("Autokleur7").textContent = data[7].Kleur;
+  document.getElementById("Autobrandstof7").textContent = data[7].Brandstof;
+  document.getElementById("AutoID7").textContent = data[7].id;
+
+  document.getElementById("Autonaamm8").textContent = data[8].Naam;
+  document.getElementById("Automodel8").textContent = data[8].Model;
+  document.getElementById("Autokleur8").textContent = data[8].Kleur;
+  document.getElementById("Autobrandstof8").textContent = data[8].Brandstof;
+  document.getElementById("AutoID8").textContent = data[8].id;
+
+  document.getElementById("Autonaamm9").textContent = data[9].Naam;
+  document.getElementById("Automodel9").textContent = data[9].Model;
+  document.getElementById("Autokleur9").textContent = data[9].Kleur;
+  document.getElementById("Autobrandstof9").textContent = data[9].Brandstof;
+  document.getElementById("AutoID9").textContent = data[9].id;
+
+  document.getElementById("Autonaamm10").textContent = data[10].Naam;
+  document.getElementById("Automodel10").textContent = data[10].Model;
+  document.getElementById("Autokleur10").textContent = data[10].Kleur;
+  document.getElementById("Autobrandstof10").textContent = data[10].Brandstof;
+  document.getElementById("AutoID10").textContent = data[10].id;
+
+  document.getElementById("Autonaamm11").textContent = data[11].Naam;
+  document.getElementById("Automodel1").textContent = data[11].Model;
+  document.getElementById("Autokleur11").textContent = data[11].Kleur;
+  document.getElementById("Autobrandstof11").textContent = data[11].Brandstof;
+  document.getElementById("AutoID11").textContent = data[11].id;
+
+  document.getElementById("Autonaamm12").textContent = data[12].Naam;
+  document.getElementById("Automodel12").textContent = data[12].Model;
+  document.getElementById("Autokleur12").textContent = data[12].Kleur;
+  document.getElementById("Autobrandstof12").textContent = data[12].Brandstof;
+  document.getElementById("AutoID12").textContent = data[12].id;
+
+
+
 }
 getAuto();
 
@@ -347,6 +410,7 @@ async function getReservering() {
   document.getElementById("userid010").textContent = data[10].user_id;
 
   console.log(data);
+
 }
 
 getReservering();
