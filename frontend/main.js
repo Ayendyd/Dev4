@@ -95,7 +95,6 @@ function addAuto(e) {
     GPS: getValue("GPS"),
     Bouwjaar: getValue("Bouwjaar"),
     Vermogen: getValue("Vermogen"),
-    Categorie_id: getValue("Categorie_id"),
   };
   // Submit data to API
   api("auto", "POST", data).then((res) => {

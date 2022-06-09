@@ -10,7 +10,7 @@ def row_to_dict(cursor, row):
 
 
 class DB:
-     
+
     @classmethod
     def get_connection(cls):
         conn = sqlite3.connect('./database/Auto.db')
@@ -70,3 +70,5 @@ class DB:
         cur.execute(query, params)
         conn.commit()
         conn.close()
+
+    
