@@ -46,7 +46,66 @@
         <p>Already have an account? <a onclick="showPage('loginPage')">Login</a></p>
 </div>
 
-<div class="container hidden" id="ReserveerPage">
+<div class="containerr hidden" id="VerwijderPage">
+    
+ 
+  <!-- <div class="input">
+      <span class="label">Eind Datum:</span>
+      <input type="datetime-local" name="eind_datumm" id="EindDatumm" required>
+  </div> -->
+ 
+
+  <div class="input">
+      <span class="label">Order ID:</span>
+      <input type="number" name="MeOrderID" id="MeOrderID">
+  </div>
+
+<div class="input">
+
+  <button class="btn" onclick="Verwijderen()" id="Verwijder">Verwijder</button>
+</div>
+
+<p><a onclick="showPage('ReservatiesPagina'), HidePage('VerwijderPage')"> <button class="btn" > Ga Terug</button></a></p>
+
+</div>
+
+
+
+<div class="containerr hidden" id="WijzigPage">
+    
+  <div class="input">
+      <span class="label">Kleur:</span>
+      <input type="text" name="Kleurr" id="Kleurr" required>
+  </div>
+  <!-- <div class="input">
+      <span class="label">Eind Datum:</span>
+      <input type="datetime-local" name="eind_datumm" id="EindDatumm" required>
+  </div> -->
+ 
+  <div class="input">
+      <span class="label">Brandstof:</span>
+      <input type="text" name="brandstoff" id="brandstoff">
+  </div>
+  <div class="input">
+      <span class="label">Auto ID:</span>
+      <input type="number" name="AAAI" id="AAAI">
+  </div>
+
+  <div class="input">
+    <span class="label">Model:</span>
+    <input type="text" name="AAAI" id="Modell">
+</div>
+ 
+
+      <div class="input">
+
+      <button class="btn" id="Wijzigg">Wijzig</button>
+  </div>
+
+  <p><a onclick="showPage('AutoPagina'), HidePage('WijzigPage')"> <button class="btn" > Ga Terug</button></a></p>
+</div>
+
+<div class="containerr hidden" id="ReserveerPage">
     
     <div class="input">
         <span class="label">Begin Datum:</span>
@@ -65,6 +124,21 @@
         <span class="label">Auto ID:</span>
         <input type="number" name="AAA" id="AAA">
     </div>
+
+    <div class="input">
+      <span class="label">Optie 1:</span>
+      <input type="text" name="optie1" id="optie1">
+  </div>
+
+  <div class="input">
+    <span class="label">Optie 2:</span>
+    <input type="text" name="optie2" id="optie2">
+</div>
+
+<div class="input">
+  <span class="label">Optie 3:</span>
+  <input type="text" name="optie3" id="optie3">
+</div>
    
 
     <div class="input">
@@ -82,7 +156,7 @@
         <button class="btn" id="reserveren">Reserveer</button>
     </div>
 </form>
-    <p><a onclick="showPage('AutoPagina')"> <button class="btn" > Ga Terug</button></a></p>
+    <p><a onclick="showPage('AutoPagina'), HidePage('ReserveerPage')"> <button class="btn" > Ga Terug</button></a></p>
 </div>
     
     <!-- Login page -->
@@ -150,13 +224,13 @@
             <a href="#" class="logo"> <span>Huur</span>wielen </a>
     
          <nav class="navbar">
-            <a onclick="showPage('mainPage'), HidePage('AutoPagina'), HidePage('MwPagina'), HidePage('ReservatiesPagina'), HidePage('reviewsPagina')" >home</a>
+            <a onclick="showPage('mainPage'), HidePage('AutoPagina'), HidePage('MwPagina'), HidePage('ReservatiesPagina'), HidePage('reviewsPagina'), HidePage('ReserveerPage')" >home</a>
             <a onclick="showPage('AutoPagina'), HidePage('mainPage'), HidePage('MwPagina'), HidePage('ReservatiesPagina'), HidePage('reviewsPagina')" >Auto's</a>
             <a onclick="ME()">Medewerkers</a>
             <a></a>
             <a></a>
             <a></a>
-            <i onclick="showPage('reviewsPagina'), HidePage('mainPage'), HidePage('MwPagina'), HidePage('AutoPagina'), HidePage('ReservatiesPagina')" class="far fa-user btn"></i>
+            <i onclick="AutoPP()" id="AccountPage" class="far fa-user btn"></i>
         </nav>
     
         <div id="register-btn" >
@@ -172,10 +246,10 @@
         
              </header> 
 
-    
-             <section class="services hidden" id="reviewsPagina">
+    <div class="home hidden" id="reviewsPagina">
+             <section class="services" >
    
-                <h1 class="heading"> Voor <span>medewerkers</span> </h1>
+                <h1 class="heading"> Mijn <span>account</span> </h1>
             
                 <div class="box-container">
         
@@ -211,6 +285,7 @@
             
                 </div>
             </section>
+          </div>
              
 <div  id="mainPage">
 
@@ -342,7 +417,8 @@
          
          
          <section class="services1" id="services">
-               <h1 class="heading"> Onze <span>Auto's</span> </h1>
+               <h1 class="gome"> Onze <span>Auto's</span> <a onclick="Mee()" class="btn"> Wijzig!</a> </h1>
+              
 
             <div class="box-container">
               <div class="box">
@@ -480,7 +556,7 @@
 
 
 
-<div class="hidden" id="MwPagina">
+<div class="home hidden" id="MwPagina">
 
 
 
@@ -555,12 +631,15 @@
 
 </style>
 
+
+
+
 <div class="home hidden" id="AlleReservatiesPagina">
 
 
 
 
-    <h1 class="heading"> Alle <span>Reservaties</span> </h1>
+    <h1 class="heading"> Alle <span>Reservaties</span>  </h1>
 
 <table id="customers">
   <tr>
@@ -726,72 +805,66 @@
  
     
    
-<div class="hidden" id="ReservatiesPagina">
+<div class="home hidden" id="ReservatiesPagina">
     
-    
-    <div class="home containerrr">
  
-        <h1 class="heading"> Mijn <span>Reservaties</span> </h1>
+        <h1 class="heading"> Mijn <span>Reservaties</span>   <h1 class="gome"> Onze <span>Auto's</span> <a onclick="showPage('VerwijderPage')" class="btn"> Annuleren</a> </h1></h1>
 
         <table id="customers">
           <tr>
-            <th>Company</th>
-            <th>Contact</th>
-            <th>Country</th>
+            <th>Order ID</th>
+            <th>User ID</th>
+            <th>Voornaam</th>
+            <th>Begin Datum</th>
+            <th>Eind Datum</th>
+            <th>Auto_id</th>
+            <th>Automerk</th>
+            <th>Automodel</th>
+            <th>Kleur</th>
+            <th>Vrije Kilometers</th>
           </tr>
           <tr>
-            <td>Alfreds Futterkiste</td>
-            <td>Maria Anders</td>
-            <td>Germany</td>
+            <td id="ID00m"></td>
+            <td id="userid0m"></td>
+            <td id="voornaamm0m"></td>
+            <td id="begindatumm0m"></td>
+            <td id="einddatumm0m"></td>
+            <td id="AutoID00m"></td>
+            <td id="Autonaam0m"></td>
+            <td id="modell0m"></td>
+            <td id="autokleur0m"></td>
+            <td id="vrijekm0m"></td>
+            
           </tr>
           <tr>
-            <td>Berglunds snabbköp</td>
-            <td>Christina Berglund</td>
-            <td>Sweden</td>
+            <td id="ID01m"></td>
+            <td id="userid01m"></td>
+            <td id="voornaamm01m"></td>
+            <td id="begindatumm01m"></td>
+            <td id="einddatumm01m"></td>
+            <td id="AutoID001m"></td>
+            <td id="Autonaam01m"></td>
+            <td id="modell01m"></td>
+            <td id="autokleur01m"></td>
+            <td id="vrijekm01m"></td>
+            
           </tr>
           <tr>
-            <td>Centro comercial Moctezuma</td>
-            <td>Francisco Chang</td>
-            <td>Mexico</td>
+            <td id="ID02m"></td>
+            <td id="userid02m"></td>
+            <td id="voornaamm02m"></td>
+            <td id="begindatumm02m"></td>
+            <td id="einddatumm02m"></td>
+            <td id="AutoID002m"></td>
+            <td id="Autonaam02m"></td>
+            <td id="modell02m"></td>
+            <td id="autokleur02m"></td>
+            <td id="vrijekm02m"></td>
           </tr>
-          <tr>
-            <td>Ernst Handel</td>
-            <td>Roland Mendel</td>
-            <td>Austria</td>
-          </tr>
-          <tr>
-            <td>Island Trading</td>
-            <td>Helen Bennett</td>
-            <td>UK</td>
-          </tr>
-          <tr>
-            <td>Königlich Essen</td>
-            <td>Philip Cramer</td>
-            <td>Germany</td>
-          </tr>
-          <tr>
-            <td>Laughing Bacchus Winecellars</td>
-            <td>Yoshi Tannamuri</td>
-            <td>Canada</td>
-          </tr>
-          <tr>
-            <td>Magazzini Alimentari Riuniti</td>
-            <td>Giovanni Rovelli</td>
-            <td>Italy</td>
-          </tr>
-          <tr>
-            <td>North/South</td>
-            <td>Simon Crowther</td>
-            <td>UK</td>
-          </tr>
-          <tr>
-            <td>Paris spécialités</td>
-            <td>Marie Bertrand</td>
-            <td>France</td>
-          </tr>
+         
         </table>
 
-        </div>
+  
 </div>
 
 

@@ -24,6 +24,19 @@ function register(e) {
   });
 }
 
+function AutoPP() {
+  if (inlogWaarde == 0) {
+    alert("Je bent niet ingelogd");
+  } else {
+    showPage("reviewsPagina"),
+      HidePage("mainPage"),
+      HidePage("MwPagina"),
+      HidePage("AutoPagina"),
+      HidePage("ReservatiesPagina"),
+      HidePage("ReserveerPage");
+  }
+}
+
 async function ME() {
   const response = await fetch(APIME, {
     method: "GET",
@@ -35,7 +48,7 @@ async function ME() {
   });
   const Data = await response.json();
   if (inlogWaarde == 0) {
-    alert("Geen rechten!");
+    alert("Je bent niet ingelogd!");
   }
   if (Data.user.userroles_id == 1) {
     showPage("MwPagina");
@@ -48,7 +61,7 @@ async function ME() {
   }
 }
 
-async function Reserveren(e) {
+async function Mee() {
   const response = await fetch(APIME, {
     method: "GET",
     mode: "cors",
@@ -58,28 +71,148 @@ async function Reserveren(e) {
     },
   });
   const Data = await response.json();
-  if ((Data.user.userroles_id == 1, 2)) {
-    data = {
-      user_id: Data.user.id,
-      begin_datum: getValue("BeginDatum"),
-      eind_datum: getValue("EindDatum"),
-      vrije_kilometers: getValue("vrije_kilometers"),
-      levering: getValue("levering"),
-      auto_id: getValue("AAA"),
-    };
-
-    // Submit data to API
-    api("orders", "POST", data).then((res) => {
-      if (res.message == "success") {
-        alert("User created");
-      }
-    });
-  } else {
-    alert("Geen rechten!");
-  }
-
   if (inlogWaarde == 0) {
-    alert("Geen rechten!");
+    alert("Je bent niet ingelogd!");
+  }
+  if (Data.user.userroles_id == 1) {
+    showPage("WijzigPage");
+    HidePage("mainPage"),
+      HidePage("reviewsPagina"),
+      HidePage("ReservatiesPagina");
+    HidePage("MwPagina");
+  } else {
+    alert("Je bent geen medewerker!");
+  }
+}
+
+async function Reserveren(e) {
+  if (inlogWaarde == 0) {
+    alert("Je moet ingelogd zijn!");
+  } else {
+    const response = await fetch(APIME, {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + getCookie("token"),
+      },
+    });
+    const Data = await response.json();
+    if ((Data.user.userroles_id == 1, 2)) {
+      data = {
+        user_id: Data.user.id,
+        begin_datum: getValue("BeginDatum"),
+        eind_datum: getValue("EindDatum"),
+        vrije_kilometers: getValue("vrije_kilometers"),
+        levering: getValue("levering"),
+        auto_id: getValue("AAA"),
+        optie1: getValue("optie1"),
+        optie2: getValue("optie2"),
+        optie3: getValue("optie3"),
+      };
+      if (inlogWaarde == 0) {
+        alert("Geen rechten!");
+      }
+
+      // Submit data to API
+      api("orders", "POST", data).then((res) => {
+        if (res.message == "success") {
+          alert("User created");
+        }
+      });
+    } else {
+      alert("Geen rechten!");
+    }
+
+    if (inlogWaarde == 0) {
+      alert("Geen rechten!");
+    }
+  }
+}
+
+async function Wijzigen(e) {
+  let id = getValue("AAAI");
+  if (inlogWaarde == 0) {
+    alert("Je moet ingelogd zijn!");
+  } else {
+    api("auto/" + id, "GET");
+
+    const response = await fetch(APIME, {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + getCookie("token"),
+      },
+    });
+    const Data = await response.json();
+    if ((Data.user.userroles_id == 1, 2)) {
+      const DData = {
+        Model: getValue("Modell"),
+        // begin_datum: getValue("BeginDatumm"),
+        // eind_datum: getValue("EindDatumm"),
+        Brandstof: getValue("brandstoff"),
+        // levering: getValue("leveringg"),
+        // auto_id: getValue("AAA"),
+        Kleur: getValue("Kleurr"),
+        // begin_datum: getValue("BeginDatumm"),
+        // begin_datum: getValue("BeginDatumm"),
+      };
+      if (inlogWaarde == 0) {
+        alert("Geen rechten!");
+      }
+
+      // Submit data to API
+      api("auto/" + id, "PATCH", DData).then((res) => {
+        if (res.message == "success") {
+          alert("Het is gewijzig");
+        }
+      });
+    } else {
+      alert("Geen rechten!");
+    }
+
+    if (inlogWaarde == 0) {
+      alert("Geen rechten!");
+    }
+  }
+}
+
+async function Verwijderen(e) {
+  if (Data.user.userroles_id == 1) {
+    showPage("VerwijderPage");
+    HidePage("mainPage"), HidePage("reviewsPagina"), HidePage("AutoPagina");
+    HidePage("MwPagina");
+
+    let id = getValue("MeOrderID");
+    if (inlogWaarde == 0) {
+      alert("Je moet ingelogd zijn!");
+    } else {
+      api("me/orders/" + id, "GET");
+
+      await fetch(APIME, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + getCookie("token"),
+        },
+      });
+
+      if (inlogWaarde == 0) {
+        alert("Geen rechten!");
+      }
+
+      // Submit data to API
+      api("me/orders/" + id, "DELETE").then((res) => {
+        if (res.message == "success") {
+          alert("Het is geannuleerd");
+        }
+      });
+    }
+  } else {
+    inlogWaarde == 0;
+    alert("Je moet ingelogd!");
   }
 }
 
@@ -269,6 +402,10 @@ async function getReservering() {
   const response = await fetch(apires, {
     method: "GET",
     mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + getCookie("token"),
+    },
   });
   const data = await response.json();
 
@@ -434,10 +571,83 @@ function bindEvents() {
   connectButton("toevoegen", addAuto);
   connectButton("reserveren", Reserveren);
   connectButton("logoutt", logout);
+  connectButton("Wijzigg", Wijzigen);
+  connectButton("Verwijder", Verwijderen);
   enableSubmits();
 
   getUser();
 }
+
+const apiress = "http://localhost:5000/me/orders";
+async function getReserveringMe() {
+  const response = await fetch(apiress, {
+    method: "GET",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + getCookie("token"),
+    },
+  });
+  const data = await response.json();
+
+  console.log(data);
+
+  // document.getElementById("TestTest").textContent = data[0];
+  // document.getElementById("Autonaamm0").textContent = data[0];
+
+  // document.getElementById("AutoID01").textContent = data[1].auto_id;
+  // document.getElementById("AutoID02").textContent = data[2].auto_id;
+
+  // document.getElementById("ID01").textContent = data[1].id;
+  // document.getElementById("ID02").textContent = data[2].id;
+  // document.getElementById("userid00").textContent = data[0].orders.usersid;
+  // document.getElementById("ID01").textContent = data[1].id;
+  // document.getElementById("ID02").textContent = data[2].id;
+  document.getElementById("AutoID00m").textContent = data[0].auto_id;
+  document.getElementById("ID00m").textContent = data[0].id;
+  document.getElementById("autokleur0m").textContent = data[0].Kleur;
+  document.getElementById("voornaamm0m").textContent = data[0].firstname;
+  document.getElementById("begindatumm0m").textContent = data[0].begin_datum;
+  document.getElementById("einddatumm0m").textContent = data[0].eind_datum;
+  document.getElementById("Autonaam0m").textContent = data[0].Naam;
+  document.getElementById("modell0m").textContent = data[0].Model;
+  document.getElementById("vrijekm0m").textContent = data[0].vrije_kilometers;
+  document.getElementById("userid0m").textContent = data[0].user_id;
+
+  document.getElementById("AutoID001m").textContent = data[1].auto_id;
+  document.getElementById("ID01m").textContent = data[1].id;
+  document.getElementById("autokleur01m").textContent = data[1].Kleur;
+  document.getElementById("voornaamm01m").textContent = data[1].firstname;
+  document.getElementById("begindatumm01m").textContent = data[1].begin_datum;
+  document.getElementById("einddatumm01m").textContent = data[1].eind_datum;
+  document.getElementById("Autonaam01m").textContent = data[1].Naam;
+  document.getElementById("modell01m").textContent = data[1].Model;
+  document.getElementById("vrijekm01m").textContent = data[1].vrije_kilometers;
+  document.getElementById("userid01m").textContent = data[1].user_id;
+
+  document.getElementById("AutoID002m").textContent = data[2].auto_id;
+  document.getElementById("ID02m").textContent = data[2].id;
+  document.getElementById("autokleur02m").textContent = data[2].Kleur;
+  document.getElementById("voornaamm02m").textContent = data[2].firstname;
+  document.getElementById("begindatumm02m").textContent = data[2].begin_datum;
+  document.getElementById("einddatumm02m").textContent = data[2].eind_datum;
+  document.getElementById("Autonaam02m").textContent = data[2].Naam;
+  document.getElementById("modell02m").textContent = data[2].Model;
+  document.getElementById("vrijekm02m").textContent = data[2].vrije_kilometers;
+  document.getElementById("userid02m").textContent = data[2].user_id;
+
+  document.getElementById("AutoID003m").textContent = data[3].auto_id;
+  document.getElementById("ID03m").textContent = data[3].id;
+  document.getElementById("autokleur03m").textContent = data[3].Kleur;
+  document.getElementById("voornaamm03m").textContent = data[3].firstname;
+  document.getElementById("begindatumm03m").textContent = data[3].begin_datum;
+  document.getElementById("einddatumm03m").textContent = data[3].eind_datum;
+  document.getElementById("Autonaam03m").textContent = data[3].Naam;
+  document.getElementById("modell03m").textContent = data[3].Model;
+  document.getElementById("vrijekm03m").textContent = data[3].vrije_kilometers;
+  document.getElementById("userid03m").textContent = data[3].user_id;
+}
+getReserveringMe();
 
 function enableSubmits() {
   document.body.addEventListener("keydown", function (e) {

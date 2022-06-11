@@ -290,6 +290,16 @@ section{
     overflow-x: hidden;
 }
 
+
+.gome{
+
+    padding-top: 10rem;
+    text-align: center;
+    overflow-x: hidden;
+    font-size: 4.5rem;
+    color:var(--black);
+}
+
 .home h3{
     color:var(--black);
     font-size: 7.5vw;
@@ -644,7 +654,7 @@ section{
     position: absolute;
     display: inline-block;
     left: 50%;
-    top: 65%;
+    top: 80%;
     transform: translate(-50%, -50%);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #F5F5F5;
