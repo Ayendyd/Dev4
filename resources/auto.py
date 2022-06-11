@@ -79,7 +79,7 @@ def create_auto():
 
 #     WHERE id = ?
 
-
+@jwt_required()
 def update_auto(id):
 
     args = request.get_json()

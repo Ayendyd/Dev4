@@ -10,6 +10,7 @@ from security import me
 from resources.orders import create_orders
 from resources.auto import update_auto
 from resources.orders import update_order
+from resources.orders import update_MEorder
 
 from resources.orders import del_order
 
@@ -186,6 +187,9 @@ app.add_url_rule('/orders', None, orders, methods=['GET'])
 # app.add_url_rule('/me/orders', None, delete_orderr, methods=['DELETE'])
 app.add_url_rule('/auto/<id>', None, update_auto, methods=['PATCH'])
 app.add_url_rule('/me/orders/<id>', None, del_order, methods=['DELETE'])
+
+app.add_url_rule('/me/orders/<id>', None, update_MEorder, methods=['PATCH'])
+
 app.add_url_rule('/auto/<id>', None, delete_auto, methods=['DELETE'])
 # app.add_url_rule('/orderss/<sid>', None, order_delete, methods=['DEETE'])
 app.add_url_rule('/me/orders', None, orderMe, methods=['GET'])

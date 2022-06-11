@@ -130,15 +130,53 @@
   <p><a onclick="showPage('AutoPagina'), HidePage('WijzigPage')"> <button class="btn" > Ga Terug</button></a></p>
 </div>
 
+
+
+<div class="containerr hidden" id="wijzigReserveringPage">
+    <h1>Alle velden moeten ingevuld zijn!</h1>
+  <div class="input">
+      <span class="label">Auto ID:*</span>
+      <input type="number" name="AAA" id="AAAAA" required>
+  </div>
+
+  <div class="input">
+    <span class="label">Order ID:*</span>
+    <input type="number" name="AAA" id="OrderIDID" required>
+</div>
+
+  <div class="input">
+    <span class="label">Optie 1:*</span>
+    <input type="text" name="optie1" id="optie11">
+</div>
+
+<div class="input">
+  <span class="label">Optie 2:*</span>
+  <input type="text" name="optie2" id="optie22">
+</div>
+
+<div class="input">
+<span class="label">Optie 3:*</span>
+<input type="text" name="optie3" id="optie33">
+</div>
+ 
+      <div class="input">
+
+      <button class="btn" id="WijzigOrder">Wijzig</button>
+  </div>
+</form>
+  <p><a onclick="showPage('AutoPagina'), HidePage('ReserveerPage')"> <button class="btn" > Ga Terug</button></a></p>
+</div>
+
+
 <div class="containerr hidden" id="ReserveerPage">
     
     <div class="input">
         <span class="label">Begin Datum:</span>
-        <input type="datetime-local" name="begin_datum" id="BeginDatum" required>
+        <input type="datetime" name="begin_datum" id="BeginDatum" required>
     </div>
     <div class="input">
         <span class="label">Eind Datum:</span>
-        <input type="datetime-local" name="eind_datum" id="EindDatum" required>
+        <input type="datetime" name="eind_datum" id="EindDatum" required>
     </div>
    
     <div class="input">
@@ -147,7 +185,7 @@
     </div>
     <div class="input">
         <span class="label">Auto ID:</span>
-        <input type="number" name="AAA" id="AAA">
+        <input type="number" name="AAA" id="AAA" required>
     </div>
 
     <div class="input">
@@ -833,57 +871,53 @@
 <div class="home hidden" id="ReservatiesPagina">
     
  
-        <h1 class="heading"> Mijn <span>Reservaties</span>    <a onclick="showPage('VerwijderPage')" class="btn"> Annuleren</a> </h1>
+        <h1 class="heading"> Mijn <span>Reservaties</span>  <a onclick="showPage('wijzigReserveringPage')" class="btn"> Wijzig</a>  <a onclick="showPage('VerwijderPage')" class="btn"> Annuleren</a> </h1>
 
         <table id="customers">
           <tr>
             <th>Order ID</th>
             <th>User ID</th>
-            <th>Voornaam</th>
             <th>Begin Datum</th>
             <th>Eind Datum</th>
             <th>Auto_id</th>
-            <th>Automerk</th>
-            <th>Automodel</th>
-            <th>Kleur</th>
+            <th>Optie 1</th>
+            <th>Optie 2</th>
+            <th>Optie 3</th>
             <th>Vrije Kilometers</th>
           </tr>
           <tr>
             <td id="ID00m"></td>
             <td id="userid0m"></td>
-            <td id="voornaamm0m"></td>
             <td id="begindatumm0m"></td>
             <td id="einddatumm0m"></td>
             <td id="AutoID00m"></td>
-            <td id="Autonaam0m"></td>
-            <td id="modell0m"></td>
-            <td id="autokleur0m"></td>
+            <td id="optieA"></td>
+            <td id="optieB"></td>
+            <td id="optieC"></td>
             <td id="vrijekm0m"></td>
             
           </tr>
           <tr>
             <td id="ID01m"></td>
             <td id="userid01m"></td>
-            <td id="voornaamm01m"></td>
             <td id="begindatumm01m"></td>
             <td id="einddatumm01m"></td>
             <td id="AutoID001m"></td>
-            <td id="Autonaam01m"></td>
-            <td id="modell01m"></td>
-            <td id="autokleur01m"></td>
+            <td id="optieAA"></td>
+            <td id="optieBB"></td>
+            <td id="optieCC"></td>
             <td id="vrijekm01m"></td>
             
           </tr>
           <tr>
             <td id="ID02m"></td>
             <td id="userid02m"></td>
-            <td id="voornaamm02m"></td>
             <td id="begindatumm02m"></td>
             <td id="einddatumm02m"></td>
             <td id="AutoID002m"></td>
-            <td id="Autonaam02m"></td>
-            <td id="modell02m"></td>
-            <td id="autokleur02m"></td>
+            <td id="optieAA"></td>
+            <td id="optieBB"></td>
+            <td id="optieCB"></td>
             <td id="vrijekm02m"></td>
           </tr>
          

@@ -59,6 +59,7 @@ def create_orders():
     return{'message': 'success', 'id': id}, 201
 
 
+@jwt_required()
 def update_order(id):
 
     args = request.get_json()
@@ -99,6 +100,61 @@ def update_order(id):
         # "begin_datum": args["begin_datum"] if "begin_datum" in args else None,
         # "eind_datum": args["eind_datum"] if "eind_datum" in args else None,
         "vrije_kilometers": args["vrije_kilometers"] if "vrije_kilometers" in args else None,
+
+    }
+
+    DB.update(qry, data)
+
+    # Return a message and the user id
+
+    return{'message': 'success', 'id': id}, 200
+
+
+@jwt_required()
+def update_MEorder(id):
+
+    args = request.get_json()
+
+    # Make the insert query with parameters
+
+    qry = '''''''''''''''
+ 	UPDATE orders SET 
+    
+    auto_id = coalesce(:auto_id,auto_id),  
+
+    optie1 = coalesce(:optie1,optie1), 
+
+    optie2 = coalesce(:optie2,optie2),  
+
+    optie3 = coalesce(:optie3,optie3)
+	
+
+    WHERE id = {}
+
+   '''''''''''''''.format(id)
+
+    # Insert the user into the database
+    # Bouwjaar = coalesce(:Bouwjaar, Bouwjaar),
+    #    # begin_datum = coalesce(:begin_datum,begin_datum),
+
+    # betaald = coalesce(:betaald,betaald),
+
+    # eind_datum = coalesce(:eind_datum,eind_datum),
+
+    data = {
+
+        # "Bouwjaar": args["Bouwjaar"] if "Bouwjaar" in args else None,
+        "optie1": args["optie1"] if "optie1" in args else None,
+        # "Transmissie": args["Transmissie"] if "Transmissie" in args else None,
+        # "Brandstof": args["Brandstof"] if "Brandstof" in args else None,
+        "auto_id": args["auto_id"] if "auto_id" in args else None,
+        "optie2": args["optie2"] if "optie2" in args else None,
+        "optie3": args["optie3"] if "optie3" in args else None,
+        # "Naam": args["Naam"] if "Naam" in args else None,
+        # "betaald": args["betaald"] if "betaald" in args else None,
+        # "begin_datum": args["begin_datum"] if "begin_datum" in args else None,
+        # "eind_datum": args["eind_datum"] if "eind_datum" in args else None,
+        # "vrije_kilometers": args["vrije_kilometers"] if "vrije_kilometers" in args else None,
 
     }
 
