@@ -5,14 +5,14 @@ from database.autodb import DB
 from resources.user import create_user
 import sqlite3 as sql
 from flask import Flask, jsonify, request
-from resources.auto import create_auto
+from resources.auto import create_auto, delete_auto
 from flask_jwt_extended import JWTManager
 from security import login
 from security import me
 from resources.orders import create_orders
 from resources.auto import update_auto
 from resources.orders import update_order
-from resources.auto import delete_auto
+
 from resources.orders import del_order
 
 
@@ -187,6 +187,7 @@ app.add_url_rule('/orders', None, create_orders, methods=['POST'])
 app.add_url_rule('/orders', None, orders, methods=['GET'])
 # app.add_url_rule('/me/orders', None, delete_orderr, methods=['DELETE'])
 app.add_url_rule('/auto/<id>', None, update_auto, methods=['PATCH'])
+app.add_url_rule('/me/orders/<id>', None, del_order, methods=['DELETE'])
 app.add_url_rule('/auto/<id>', None, delete_auto, methods=['DELETE'])
 # app.add_url_rule('/orderss/<sid>', None, order_delete, methods=['DEETE'])
 app.add_url_rule('/me/orders', None, orderMe, methods=['GET'])

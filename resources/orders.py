@@ -9,30 +9,26 @@ from flask_jwt_extended import (
 )
 
 
-@jwt_required
-def order_delete(id):
-    User = get_jwt_identity()
+# @jwt_required
+# def order_delete(id):
+#     User = get_jwt_identity()
 
-    if (User['userroles_id'] == 1):
-        return{'message': 'Geen klant'}, 401
+#     if (User['userroles_id'] == 1):
+#         return{'message': 'Geen klant'}, 401
 
-    qry = "DELETE FROM orders WHERE id={}".format(id)
+#     qry = "DELETE FROM orders WHERE id={}".format(id)
 
-    DB.delete(qry)
-    return {"message": "Order succesvol verwijderd"}, 200
+#     DB.delete(qry)
+#     return {"message": "Order succesvol verwijderd"}, 200
 
 
-@jwt_required
 def del_order(id):
-    user = get_jwt_identity()
-
-    if (user['userroles_id'] == 1):
-        return{'message': 'Geen klant'}, 401
 
     qry = "DELETE FROM orders WHERE id={}".format(id)
 
     DB.delete(qry)
     return {'message': "Order succesvol verwijderd"}, 200
+
 
 @jwt_required()
 def create_orders():

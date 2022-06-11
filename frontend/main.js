@@ -179,42 +179,73 @@ async function Wijzigen(e) {
 }
 
 async function Verwijderen(e) {
-  if (Data.user.userroles_id == 1) {
-    showPage("VerwijderPage");
-    HidePage("mainPage"), HidePage("reviewsPagina"), HidePage("AutoPagina");
-    HidePage("MwPagina");
+  showPage("VerwijderPage");
+  HidePage("mainPage"), HidePage("reviewsPagina"), HidePage("AutoPagina");
+  HidePage("MwPagina");
 
-    let id = getValue("MeOrderID");
-    if (inlogWaarde == 0) {
-      alert("Je moet ingelogd zijn!");
-    } else {
-      api("me/orders/" + id, "GET");
-
-      await fetch(APIME, {
-        method: "GET",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + getCookie("token"),
-        },
-      });
-
-      if (inlogWaarde == 0) {
-        alert("Geen rechten!");
-      }
-
-      // Submit data to API
-      api("me/orders/" + id, "DELETE").then((res) => {
-        if (res.message == "success") {
-          alert("Het is geannuleerd");
-        }
-      });
-    }
+  let id = getValue("MeOrderID");
+  if (inlogWaarde == 0) {
+    alert("Je moet ingelogd zijn!");
   } else {
-    inlogWaarde == 0;
-    alert("Je moet ingelogd!");
+    api("me/orders", "GET");
+
+    await fetch(APIME, {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + getCookie("token"),
+      },
+    });
+
+    if (inlogWaarde == 0) {
+      alert("Geen rechten!");
+    }
+
+    // Submit data to API
+    api("me/orders/" + id, "DELETE").then((res) => {
+      if (res.message == "success") {
+        alert("Het is geannuleerd");
+      }
+    });
   }
 }
+
+// function deleteTafel() {
+
+//   // Fetch data from html
+
+//   data = {
+
+//     TafelId: getValue("tafelId"),
+
+//   };
+
+//   // data.TafelId;
+
+//   // Submit data to API
+
+//   api("delete/" + data.TafelId, "DELETE", data).then((res) => {
+
+//     if (res.message == "Tafel succesvol verwijderd") {
+
+//       alert("Succesvol tafel verwijderd");
+
+//       hidePage("verwijderPage");
+
+//       showPage("medewerkerPage");
+
+//       getUser();
+
+//     } else {
+
+//       console.log(res.message);
+
+//     }
+
+//   });
+
+// }
 
 function addAuto(e) {
   // Fetch data from html
