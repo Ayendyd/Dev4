@@ -8,14 +8,16 @@ from flask_jwt_extended import (
     get_jwt_identity
 )
 
-@jwt_required
+
+@jwt_required()
 def delete_auto(id):
+
     User = get_jwt_identity()
 
     if (User['userroles_id'] == 2):
         return{'message': 'Geen medewerker'}, 401
-        
-    qry = "DELETE FROM auto WHERE id={}".format(id)
+
+    qry = "DELETE FROM auto WHERE auto.id={}".format(id)
 
     DB.delete(qry)
     return {"message": "Product succesvol verwijderd"}, 200

@@ -71,6 +71,31 @@
 
 
 
+<div class="containerr hidden" id="VerwijderPagee">
+    
+
+  <!-- <div class="input">
+      <span class="label">Eind Datum:</span>
+      <input type="datetime-local" name="eind_datumm" id="EindDatumm" required>
+  </div> -->
+ 
+  <div class="input">
+    <span class="label">Auto ID:</span>
+    <input type="number" name="AutoIdd" id="AutoIdd">
+</div>
+ 
+
+      <div class="input">
+
+      <button class="btn" onclick="VerwijderenBTN()" id="Verwijderr">Verwijder</button>
+  </div>
+
+  <p><a onclick="showPage('AutoPagina'), HidePage('WijzigPage')"> <button class="btn" > Ga Terug</button></a></p>
+</div>
+
+
+
+
 <div class="containerr hidden" id="WijzigPage">
     
   <div class="input">
@@ -261,7 +286,7 @@
                         <p>Bij ons huur je een auto vanaf 60 euro per dag waarbij je gratis een extra bestuurder hebt.  </p>
                         <div id="register-btn" class="btn">
                             
-            <a onclick="showPage('ReservatiesPagina'), HidePage('mainPage'), HidePage('MwPagina'), HidePage('AutoPagina'), HidePage('reviewsPagina')" >Reservaties</a>
+            <a class="btn" onclick="showPage('ReservatiesPagina'), HidePage('mainPage'), HidePage('MwPagina'), HidePage('AutoPagina'), HidePage('reviewsPagina'), getReserveringMe()" >Reservaties</a>
                             <i class="far fa-user"></i>
                         </div>
                     </div>
@@ -417,7 +442,7 @@
          
          
          <section class="services1" id="services">
-               <h1 class="gome"> Onze <span>Auto's</span> <a onclick="Mee()" class="btn"> Wijzig!</a> </h1>
+               <h1 class="gome"> Onze <span>Auto's</span> <a onclick="Mee()" class="btn"> Wijzig!</a> <a onclick="showPage('VerwijderPagee')" class="btn"> Verwijder!</a> </h1>
               
 
             <div class="box-container">
@@ -808,7 +833,7 @@
 <div class="home hidden" id="ReservatiesPagina">
     
  
-        <h1 class="heading"> Mijn <span>Reservaties</span>   <h1 class="gome"> Onze <span>Auto's</span> <a onclick="showPage('VerwijderPage')" class="btn"> Annuleren</a> </h1></h1>
+        <h1 class="heading"> Mijn <span>Reservaties</span>    <a onclick="showPage('VerwijderPage')" class="btn"> Annuleren</a> </h1>
 
         <table id="customers">
           <tr>

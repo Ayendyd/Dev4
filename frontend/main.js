@@ -178,6 +178,41 @@ async function Wijzigen(e) {
   }
 }
 
+async function VerwijderenBTN(e) {
+  showPage("VerwijderPagee");
+  HidePage("mainPage"), HidePage("reviewsPagina");
+  HidePage("MwPagina");
+
+  let id = getValue("AutoIdd");
+
+  if (inlogWaarde == 0) {
+    alert("Je moet ingelogd zijn!");
+  } else {
+    api("auto", "GET");
+
+    await fetch(APIME, {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + getCookie("token"),
+      },
+    });
+
+    if (inlogWaarde == 0) {
+      alert("Geen rechten!");
+    }
+
+    // Submit data to API
+
+    api("auto/" + id, "DELETE").then((res) => {
+      if (res.message == "success") {
+        alert("Het is geannuleerd");
+      }
+    });
+  }
+}
+
 async function Verwijderen(e) {
   showPage("VerwijderPage");
   HidePage("mainPage"), HidePage("reviewsPagina"), HidePage("AutoPagina");
@@ -187,8 +222,6 @@ async function Verwijderen(e) {
   if (inlogWaarde == 0) {
     alert("Je moet ingelogd zijn!");
   } else {
-    api("me/orders", "GET");
-
     await fetch(APIME, {
       method: "GET",
       mode: "cors",
@@ -604,6 +637,7 @@ function bindEvents() {
   connectButton("logoutt", logout);
   connectButton("Wijzigg", Wijzigen);
   connectButton("Verwijder", Verwijderen);
+  connectButton("Verwijderr", VerwijderenBTN);
   enableSubmits();
 
   getUser();

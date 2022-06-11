@@ -1,5 +1,3 @@
-import imp
-from venv import create
 from flask_cors import CORS
 from database.autodb import DB
 from resources.user import create_user

@@ -21,7 +21,7 @@ from flask_jwt_extended import (
 #     DB.delete(qry)
 #     return {"message": "Order succesvol verwijderd"}, 200
 
-
+@jwt_required()
 def del_order(id):
 
     qry = "DELETE FROM orders WHERE id={}".format(id)
