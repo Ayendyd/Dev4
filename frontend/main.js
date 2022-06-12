@@ -161,7 +161,7 @@ async function OrderWijzigen(e) {
       // Submit data to API
       api("me/orders/" + id, "PATCH", DData).then((res) => {
         if (res.message == "success") {
-          alert("Het is gewijzig");
+          alert("Het is gewijzigd");
         }
       });
     } else {
@@ -843,6 +843,7 @@ function loggedIn(inlogWaarde) {
     console.log(`inlogWaarde is nu ${inlogWaarde}`);
     showPage("mainPage");
     showPage("LogoutLink");
+    showPage("AccountPage");
     HidePage("LoginLink");
 
     return true;

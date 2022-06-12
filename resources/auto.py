@@ -54,7 +54,7 @@ def create_auto():
 
     # Return a message and the user id
 
-    return{'message': 'success', 'id': id}, 201
+    return{'message': 'success', 'id': id}, 200
 
 
 # UPDATE auto SET
